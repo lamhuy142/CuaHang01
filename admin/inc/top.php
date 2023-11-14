@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 
 	<title>Trang quản trị - ABC Shop</title>
@@ -20,8 +20,8 @@
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="">
-          <span class="align-middle">ABC Shop</span>
-        </a>
+					<span class="align-middle">ABC Shop</span>
+				</a>
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header text-info">
@@ -30,13 +30,13 @@
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="">
-						<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Bảng điều khiển</span>
+							<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Bảng điều khiển</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="">
-						<i class="align-middle" data-feather="users"></i> <span class="align-middle">Quản lý người dùng</span>
+							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Quản lý người dùng</span>
 						</a>
 					</li>
 
@@ -46,59 +46,59 @@
 
 					<li class="sidebar-item  active">
 						<a class="sidebar-link" href="../qldanhmuc/index.php">
-						<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Quản lý danh mục</span>
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Quản lý danh mục</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="../qlmathang/index.php">
-						<i class="align-middle" data-feather="package"></i> <span class="align-middle">Quản lý hàng hóa</span>
+							<i class="align-middle" data-feather="package"></i> <span class="align-middle">Quản lý hàng hóa</span>
 						</a>
 					</li>
 
 					<li class="sidebar-header text-info">
 						KINH DOANH
 					</li>
-					
+
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="">
-						<i class="align-middle" data-feather="users"></i> <span class="align-middle">Quản lý khách hàng</span>
+							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Quản lý khách hàng</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="">
-						<i class="align-middle" data-feather="truck"></i> <span class="align-middle">Quản lý đơn hàng</span>
+							<i class="align-middle" data-feather="truck"></i> <span class="align-middle">Quản lý đơn hàng</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="">
-						<i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Quản lý doanh thu</span>
+							<i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Quản lý doanh thu</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="">
-						<i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">Chương trình khuyến mãi</span>
+							<i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">Chương trình khuyến mãi</span>
 						</a>
 					</li>
 
-					
-					
+
+
 					<li class="sidebar-header text-info">
 						CẤU HÌNH WEBSITE
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="">
-						<i class="align-middle" data-feather="book"></i> <span class="align-middle">Thông tin</span>
+							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Thông tin</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="">
-						<i class="align-middle" data-feather="image"></i> <span class="align-middle">Hình ảnh</span>
+							<i class="align-middle" data-feather="image"></i> <span class="align-middle">Hình ảnh</span>
 						</a>
 					</li>
 				</ul>
@@ -108,8 +108,8 @@
 		<div class="main">
 			<nav class="navbar navbar-expand navbar-light navbar-bg">
 				<a class="sidebar-toggle js-sidebar-toggle">
-          <i class="hamburger align-self-center"></i>
-        </a>
+					<i class="hamburger align-self-center"></i>
+				</a>
 
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav navbar-align">
@@ -137,7 +137,7 @@
 											</div>
 										</div>
 									</a>
-									
+
 								</div>
 								<div class="dropdown-menu-footer">
 									<a href="#" class="text-muted">Tất cả thông báo</a>
@@ -170,7 +170,7 @@
 											</div>
 										</div>
 									</a>
-									
+
 								</div>
 								<div class="dropdown-menu-footer">
 									<a href="#" class="text-muted">Tất cả tin nhắn</a>
@@ -179,19 +179,32 @@
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
-                <i class="align-middle" data-feather="settings"></i>
-              </a>
+								<i class="align-middle" data-feather="settings"></i>
+							</a>
+							<!-- Bổ sung một số thông tin vào menu người dùng -->
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-								<img src="../../images/users/user.png" class="avatar img-fluid rounded me-1" alt="Quản trị viên" /> 
-								<span class="text-dark">Quản trị viên</span>
+								<img src="../../images/users/user.png" class="avatar img-fluid rounded me-1" alt="Quản trị viên" />
+								<span class="text-dark">
+									Chào
+									<?php
+									if (isset($_SESSION["nguoidung"])) echo $_SESSION["nguoidung"]["hoten"];
+									else echo "bạn";
+									?>
+								</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end">
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i> Hồ sơ cá nhân</a>								
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="key"></i> Đổi mật khẩu</a>
-								
+								<a class="dropdown-item" href="../ktnguoidung/index.php?action=hoso">
+									<i class="align-middle me-1" data-feather="user"></i> Hồ sơ cá nhân
+								</a>
+								<a class="dropdown-item" href="../ktnguoidung/index.php?action=matkhau">
+									<i class="align-middle me-1" data-feather="key"></i> Đổi mật khẩu
+								</a>
+
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="log-out"></i> Đăng xuất</a>
+								<a class="dropdown-item" href="../ktnguoidung/index.php?action=dangxuat">
+									<i class="align-middle me-1" data-feather="log-out"></i> Đăng xuất
+								</a>
 							</div>
 						</li>
 					</ul>
