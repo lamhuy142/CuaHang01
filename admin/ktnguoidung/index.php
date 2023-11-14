@@ -55,3 +55,4 @@ switch ($action) {
     default:
         break;
 }
+?>

@@ -7,8 +7,7 @@ class NGUOIDUNG
     {
         $db = DATABASE::connect();
         try {
-            $sql = "SELECT * FROM nguoidung WHERE email=:email AND 
-matkhau=:matkhau AND trangthai=1";
+            $sql = "SELECT * FROM nguoidung WHERE email=:email AND matkhau=:matkhau AND trangthai=1";
             $cmd = $db->prepare($sql);
             $cmd->bindValue(":email", $email);
             $cmd->bindValue(":matkhau", md5($matkhau));
