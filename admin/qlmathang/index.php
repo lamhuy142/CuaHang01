@@ -1,9 +1,7 @@
 <?php
-if(!isset($_SESSION["nguoidung"])){
+if (!isset($_SESSION["nguoidung"])) 
     header("location:../index.php");
-}
-?>
-<?php 
+
 require("../../model/database.php");
 require("../../model/danhmuc.php");
 require("../../model/mathang.php");
