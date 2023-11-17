@@ -1,7 +1,7 @@
 <?php
-class DANHMUC{
+class PHANLOAI{
     private $id;
-    private $tendanhmuc;
+    private $tenpl;
 
     public function getid(){
         return $this->id;
@@ -11,19 +11,19 @@ class DANHMUC{
         $this->id = $value;
     }
 
-    public function gettendanhmuc(){
-        return $this->tendanhmuc;
+    public function gettenpl(){
+        return $this->tenpl;
     }
 
-    public function settendanhmuc($value){
-        $this->tendanhmuc = $value;
+    public function settenpl($value){
+        $this->tenpl = $value;
     }
 
     // Lấy danh sách
-    public function laydanhmuc(){
+    public function layphanloai(){
         $dbcon = DATABASE::connect();
         try{
-            $sql = "SELECT * FROM danhmuc";
+            $sql = "SELECT * FROM phanloai";
             $cmd = $dbcon->prepare($sql);
             $cmd->execute();
             $result = $cmd->fetchAll();
@@ -38,10 +38,10 @@ class DANHMUC{
 
 
     // Lấy danh mục theo id
-    public function laydanhmuctheoid($id){
+    public function layphanloaitheoid($id){
         $dbcon = DATABASE::connect();
         try{
-            $sql = "SELECT * FROM danhmuc WHERE id=:id";
+            $sql = "SELECT * FROM phanloai WHERE id=:id";
             $cmd = $dbcon->prepare($sql);
             $cmd->bindValue(":id", $id);
             $cmd->execute();
@@ -55,12 +55,12 @@ class DANHMUC{
         }
     }
     // Thêm mới
-    public function themdanhmuc($danhmuc){
+    public function themphanloai($phanloai){
         $dbcon = DATABASE::connect();
         try{
-            $sql = "INSERT INTO danhmuc(tendanhmuc) VALUES(:tendanhmuc)";
+            $sql = "INSERT INTO phanloai(tenpl) VALUES(:tenpl)";
             $cmd = $dbcon->prepare($sql);
-            $cmd->bindValue(":tendanhmuc", $danhmuc->tendanhmuc);
+            $cmd->bindValue(":tenpl", $phanloai->tenpl);
             $result = $cmd->execute();
             return $result;
         }
@@ -71,12 +71,12 @@ class DANHMUC{
         }
     }
     // Xóa 
-    public function xoadanhmuc($danhmuc){
+    public function xoaphanloai($phanloai){
     $dbcon = DATABASE::connect();
     try{
-    $sql = "DELETE FROM danhmuc WHERE id=:id";
+    $sql = "DELETE FROM phanloai WHERE id=:id";
     $cmd = $dbcon->prepare($sql);
-    $cmd->bindValue(":id", $danhmuc->id);
+    $cmd->bindValue(":id", $phanloai->id);
     $result = $cmd->execute();
     return $result;
     }
@@ -87,13 +87,13 @@ class DANHMUC{
     }
     }
     // Cập nhật 
-    public function suadanhmuc($danhmuc){
+    public function suaphanloai($phanloai){
     $dbcon = DATABASE::connect();
     try{
-    $sql = "UPDATE danhmuc SET tendanhmuc=:tendanhmuc WHERE id=:id";
+    $sql = "UPDATE phanloai SET tenpl=:tenpl WHERE id=:id";
     $cmd = $dbcon->prepare($sql);
-    $cmd->bindValue(":tendanhmuc", $danhmuc->tendanhmuc);
-    $cmd->bindValue(":id", $danhmuc->id);
+    $cmd->bindValue(":tenpl", $phanloai->tenpl);
+    $cmd->bindValue(":id", $phanloai->id);
     $result = $cmd->execute();
     return $result;
     }

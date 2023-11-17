@@ -13,13 +13,15 @@
 	<link href="../inc/css/app.css" rel="stylesheet">
 	<script src="../inc/js/app.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+
 </head>
 
 <body>
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="">
+				<a class="sidebar-brand" href="../../public/index.php">
 					<span class="align-middle">ABC Shop</span>
 				</a>
 
@@ -41,18 +43,20 @@
 					</li>
 
 					<li class="sidebar-header text-info">
-						DANH MỤC
+						PHÂN LOẠI
 					</li>
 
-					<li class="sidebar-item  active">
-						<a class="sidebar-link" href="../qldanhmuc/index.php">
-							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Quản lý danh mục</span>
+					<li class="sidebar-item  
+					<?php if (strpos($_SERVER["REQUEST_URI"], "qlphanloai") != false) echo "active"; ?>
+					">
+						<a class="sidebar-link" href="../qlphanloai/index.php">
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Quản lý phân loại</span>
 						</a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="../qlmathang/index.php">
-							<i class="align-middle" data-feather="package"></i> <span class="align-middle">Quản lý hàng hóa</span>
+					<li class="sidebar-item <?php if (strpos($_SERVER["REQUEST_URI"], "qlsanpham") != false) echo "active"; ?>">
+						<a class="sidebar-link" href="../qlsanpham/index.php">
+							<i class="align-middle" data-feather="package"></i> <span class="align-middle">Quản lý sản phẩm</span>
 						</a>
 					</li>
 

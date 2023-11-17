@@ -3,16 +3,16 @@
 <form method="post" enctype="multipart/form-data" action="index.php"> 
 	<input type="hidden" name="action" value="xulythem">
 	<div class="md-3 mt-3">	
-		<label for="optdanhmuc" class="form-label">Danh mục</label>
-		<select class="form-select" name="optdanhmuc">
-		<?php foreach ($danhmuc as $d): ?>
-			<option value="<?php echo $d['id']; ?>"><?php echo $d['tendanhmuc']; ?></option>
+		<label for="optphanloai" class="form-label">Loại sản phẩm</label>
+		<select class="form-select" name="optphanloai">
+		<?php foreach ($phanloai as $l): ?>
+			<option value="<?php echo $l['id']; ?>"><?php echo $l['tenpl']; ?></option>
 			 <?php endforeach; ?>
 		</select>
 	</div>
 	<div class="md-3 mt-3">	
-		<label for="txttenmathang" class="form-label">Tên mặt hàng</label>
-		<input class="form-control" type="text" name="txttenmathang" placeholder="Nhập tên">
+		<label for="txttensp" class="form-label">Tên sản phẩm</label>
+		<input class="form-control" type="text" name="txttensp" placeholder="Nhập tên">
 	</div>
 	<div class="md-3 mt-3">	
 		<label for="txtgianhap" class="form-label">Gía nhập</label>

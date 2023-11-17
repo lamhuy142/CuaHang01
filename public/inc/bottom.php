@@ -48,16 +48,16 @@
                         <a href="index.php" class="text-decoration-none text-white">
                         <h4><span class="badge text-white bg-success">A</span>
                             <span class="badge text-white bg-danger">B</span>
-                            <span class="badge text-white bg-warning">C</span> Shop - Cửa hàng văn phòng phẩm</h4></a>
+                            <span class="badge text-white bg-warning">C</span> Shop - Cửa hàng cây kiểng</h4></a>
                         <p><b><i>Địa chỉ:</i></b> 18 Ung Văn Khiêm, phường Đông Xuyên, TP Long Xuyên, An Giang<br>
                             <b><i>Điện thoại:</i></b> 076 3841190<br> 
                             <b><i>Email:</i></b> abc@abc.com</p>
                     </div>
                     <div class="col-md-3 text-muted">
                         <h4>DANH MỤC HÀNG</h4>                        
-                        <?php foreach ($danhmuc as $d): ?>
-                            <a class="list-group-item" href="?action=group&id=<?php echo $d["id"]; ?>">
-							<?php echo $d["tendanhmuc"]; ?>
+                        <?php foreach ($phanloai as $l): ?>
+                            <a class="list-group-item" href="?action=group&id=<?php echo $l["id"]; ?>">
+							<?php echo $l["tenpl"]; ?>
 							</a>
                         <?php endforeach; ?>
                     </div>

@@ -1,10 +1,10 @@
 
 <?php
-if (!isset($_SESSION["nguoidung"]))
-    header("location:../index.php");
+// if (!isset($_SESSION["nguoidung"]))
+//     header("location:../index.php");
 
 require("../../model/database.php");
-require("../../model/danhmuc.php");
+require("../../model/phanloai.php");
 
 // Xét xem có thao tác nào được chọn
 if(isset($_REQUEST["action"])){
@@ -14,48 +14,48 @@ else{   // mặc định là xem danh sách
     $action="xem";
 }
 
-$dm = new DANHMUC();
+$pl = new PHANLOAI();
 $idsua = 0;
 
 switch($action){
     case "xem":
-        $danhmuc = $dm->laydanhmuc();       
+        $phanloai = $pl->layphanloai();       
         include("main.php");
         break;
     case "sua": // hiển thị form
     	$idsua = $_GET["id"];
-        $danhmuc = $dm->laydanhmuc();       
+        $phanloai = $pl->layphanloai();       
         include("main.php");
         break;
     case "capnhat": // lưu dữ liệu sửa mới vào db
     	// gán dữ liệu từ form
-    	$dmmoi = new DANHMUC();
-    	$dmmoi->setid($_POST["id"]);
-    	$dmmoi->settendanhmuc($_POST["ten"]);
+    	$plmoi = new phanloai();
+    	$plmoi->setid($_POST["id"]);
+    	$plmoi->settenpl($_POST["ten"]);
     	// sửa
-    	$dm->suadanhmuc($dmmoi);
+    	$pl->suaphanloai($plmoi);
     	// load danh sách
-        $danhmuc = $dm->laydanhmuc();       
+        $phanloai = $pl->layphanloai();       
         include("main.php");
         break;
     case "them":
     	// gán dữ liệu từ form
-    	$dmmoi = new DANHMUC();
-    	$dmmoi->settendanhmuc($_POST["ten"]);
+    	$plmoi = new PHANLOAI();
+    	$plmoi->settenpl($_POST["ten"]);
     	// thêm
-    	$dm->themdanhmuc($dmmoi);
+    	$pl->themphanloai($plmoi);
     	// load danh sách
-        $danhmuc = $dm->laydanhmuc();       
+        $phanloai = $pl->layphanloai();       
         include("main.php");
         break;
     case "xoa":
     	// lấy dòng muốn xóa
-    	$dmxoa = new DANHMUC();
-    	$dmxoa->setid($_GET["id"]);
+    	$plxoa = new PHANLOAI();
+    	$plxoa->setid($_GET["id"]);
     	// xóa
-    	$dm->xoadanhmuc($dmxoa);
+    	$pl->xoaphanloai($plxoa);
     	// load danh sách
-        $danhmuc = $dm->laydanhmuc();       
+        $phanloai = $pl->layphanloai();       
         include("main.php");
         break;
     default:

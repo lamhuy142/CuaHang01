@@ -1,12 +1,6 @@
 <?php
-// if (!isset($_SESSION['nguoidung'])) {
-//     $_SESSION['nguoidung'] = ""; // add this line if not added somewhere else
-//     header('Location: ../index.php');
-// }
-
-if (!isset($_SESSION["nguoidung"]))
-    header("location:../index.php");
-
+// if (!isset($_SESSION["nguoidung"]))
+//     header("location:../index.php");
 require("../model/database.php");
 require("../model/nguoidung.php");
 // Biến $isLogin cho biết người dùng đăng nhập chưa

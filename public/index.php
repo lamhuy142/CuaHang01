@@ -1,13 +1,13 @@
 <?php 
 require("../model/database.php");
-require("../model/danhmuc.php");
-require("../model/mathang.php");
+require("../model/phanloai.php");
+require("../model/sanpham.php");
 
 
-$dm = new DANHMUC();
-$danhmuc = $dm->laydanhmuc();
-$mh = new MATHANG();
-$mathangxemnhieu = $mh->laymathangxemnhieu();
+$pl = new PHANLOAI();
+$phanloai = $pl->layphanloai();
+$sp = new SANPHAM();
+$sanphamxemnhieu = $sp->laysanphamxemnhieu();
 
 if(isset($_REQUEST["action"])){
     $action = $_REQUEST["action"];
@@ -19,15 +19,15 @@ else{
 
 switch($action){
     case "null": 	
-    	$mathang = $mh->laymathang();	
+    	$sanpham = $sp->laysanpham();	
         include("main.php");
         break;
     case "group": 
         if(isset($_REQUEST["id"])){
-            $madm = $_REQUEST["id"];
-            $dmuc = $dm->laydanhmuctheoid($madm);
-            $tendm =  $dmuc["tendanhmuc"];   
-            $mathang = $mh->laymathangtheodanhmuc($madm);
+            $mapl = $_REQUEST["id"];
+            $pluc = $pl->layphanloaitheoid($mapl);
+            $tenpl =  $pluc["tenpl"];   
+            $sanpham = $sp->laysanphamtheophanloai($mapl);
             include("group.php");
         }
         else{
@@ -36,14 +36,14 @@ switch($action){
         break;
     case "detail": 
         if(isset($_GET["id"])){
-            $mahang = $_GET["id"];
+            $id_sp = $_GET["id"];
             // tăng lượt xem lên 1
-            $mh->tangluotxem($mahang);
+            $sp->tangluotxem($id_sp);
             // lấy thông tin chi tiết mặt hàng
-            $mhct = $mh->laymathangtheoid($mahang);
+            $spct = $sp->laysanphamtheoid($id_sp);
             // lấy các mặt hàng cùng danh mục
-            $madm = $mhct["danhmuc_id"];
-            $mathang = $mh->laymathangtheodanhmuc($madm);
+            $mapl = $spct["phanloaisp"];
+            $sanpham = $sp->laysanphamtheophanloai($mapl);
             include("detail.php");
         }
         break;
