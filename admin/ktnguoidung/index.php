@@ -25,7 +25,9 @@ switch ($action) {
         if ($nd->kiemtranguoidunghople($email, $matkhau) == TRUE) {
             $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
             include("main.php");
-        } else{
+        // } elseif( $_SESSION["nguoidung"]["loai"] == 3 ){
+        //     include("../../public/main.php");
+        } else {
             include("login.php");
         }
         break;

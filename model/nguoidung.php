@@ -1,6 +1,79 @@
 <?php
 class NGUOIDUNG
 {
+    private $id;
+    private $email;
+    private $sodienthoai;
+    private $matkhau;
+    private $hoten;
+    private $loai;
+    private $trangthai;
+    private $hinhanh;
+
+    public function getid()
+    {
+        return $this->id;
+    }
+    public function setid($value)
+    {
+        $this->id = $value;
+    }
+    public function getemail()
+    {
+        return $this->email;
+    }
+    public function setemail($value)
+    {
+        $this->email = $value;
+    }
+    public function getsodienthoai()
+    {
+        return $this->sodienthoai;
+    }
+    public function setsodienthoai($value)
+    {
+        $this->sodienthoai = $value;
+    }
+    public function getmatkhau()
+    {
+        return $this->matkhau;
+    }
+    public function setmatkhau($value)
+    {
+        $this->matkhau = $value;
+    }
+    public function gethoten()
+    {
+        return $this->hoten;
+    }
+    public function sethoten($value)
+    {
+        $this->hoten = $value;
+    }
+    public function getloai()
+    {
+        return $this->loai;
+    }
+    public function setloai($value)
+    {
+        $this->loai = $value;
+    }
+    public function gettrangthai()
+    {
+        return $this->trangthai;
+    }
+    public function settrangthai($value)
+    {
+        $this->trangthai = $value;
+    }
+    public function gethinhanh()
+    {
+        return $this->hinhanh;
+    }
+    public function sethinhanh($value)
+    {
+        $this->hinhanh = $value;
+    }
     // khai báo các thuộc tính (SV tự viết)
 
     public function kiemtranguoidunghople($email, $matkhau)
@@ -59,18 +132,20 @@ class NGUOIDUNG
     }
     // Thêm ng dùng mới, trả về khóa của dòng mới thêm
     // (SV nên truyền tham số là 1 đối tượng kiểu người dùng, không nên truyền nhiều tham số rời rạc như thế này)
-    public function themnguoidung($email, $matkhau, $sodt, $hoten, $loai)
+    public function themnguoidung($nguoidung)
     {
         $db = DATABASE::connect();
         try {
-            $sql = "INSERT INTO nguoidung(email,matkhau,sodienthoai,hoten,loai) 
-VALUES(:email,:matkhau,:sodt,:hoten,:loai)";
+            $sql = "INSERT INTO nguoidung(email,sodienthoai,matkhau,hoten,loai,trangthai,hinhanh) 
+VALUES(:email,:sodienthoai,:matkhau,:hoten,:loai,:trangthai,:hinhanh)";
             $cmd = $db->prepare($sql);
-            $cmd->bindValue(':email', $email);
-            $cmd->bindValue(':matkhau', md5($matkhau));
-            $cmd->bindValue(':sodt', $sodt);
-            $cmd->bindValue(':hoten', $hoten);
-            $cmd->bindValue(':loai', $loai);
+            $cmd->bindValue(':email', $nguoidung->email);
+            $cmd->bindValue(':matkhau', md5($nguoidung->matkhau));
+            $cmd->bindValue(':sodienthoai', $nguoidung->sodienthoai);
+            $cmd->bindValue(':hoten', $nguoidung->hoten);
+            $cmd->bindValue(':loai', $nguoidung->loai);
+            $cmd->bindValue(':trangthai', $nguoidung->trangthai);
+            $cmd->bindValue(':hinhanh', $nguoidung->hinhanh);
             $cmd->execute();
             $id = $db->lastInsertId();
             return $id;
