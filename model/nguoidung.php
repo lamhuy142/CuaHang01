@@ -86,7 +86,7 @@ VALUES(:email,:matkhau,:sodt,:hoten,:loai)";
     {
         $db = DATABASE::connect();
         try {
-            $sql = "UPDATE nguoidung set hoten=:hoten, email=:email, sodienthoai=:sodt, hinhanh=:hinhanh where id=:id";
+            $sql = "UPDATE nguoidung set hoten=:hoten, email=:email,sodienthoai=:sodt, hinhanh=:hinhanh where id=:id";
             $cmd = $db->prepare($sql);
             $cmd->bindValue(':id', $id);
             $cmd->bindValue(':email', $email);
@@ -102,7 +102,6 @@ VALUES(:email,:matkhau,:sodt,:hoten,:loai)";
         }
     }
     // Đổi mật khẩu
-
     public function doimatkhau($email, $matkhau)
     {
         $db = DATABASE::connect();

@@ -1,8 +1,6 @@
 <?php
-// if (!isset($_SESSION["nguoidung"]))
-//     header("location:../index.php");
-require("../model/database.php");
-require("../model/nguoidung.php");
+require("../../model/database.php");
+require("../../model/nguoidung.php");
 // Biến $isLogin cho biết người dùng đăng nhập chưa
 $isLogin = isset($_SESSION["nguoidung"]);
 // Kiểm tra hành động $action: yêu cầu đăng nhập nếu chưa xác thực
@@ -27,7 +25,7 @@ switch ($action) {
         if ($nd->kiemtranguoidunghople($email, $matkhau) == TRUE) {
             $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
             include("main.php");
-        } else {
+        } else{
             include("login.php");
         }
         break;

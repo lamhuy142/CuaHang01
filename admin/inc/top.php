@@ -30,18 +30,18 @@
 						HỆ THỐNG
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="">
+					<li class="sidebar-item <?php if (strpos($_SERVER["REQUEST_URI"], "ktnguoidung") != false) echo "active"; ?>">
+						<a class="sidebar-link" href="../ktnguoidung/main.php">
 							<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Bảng điều khiển</span>
 						</a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="">
-							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Quản lý người dùng</span>
-						</a>
-					</li>
-
+					<?php if ($_SESSION["nguoidung"]["loai"] == 1) { ?>
+						<li class="sidebar-item  <?php if (strpos($_SERVER["REQUEST_URI"], "qlnguoidung") != false) echo "active"; ?> ">
+							<a class="sidebar-link" href="../qlnguoidung/main.php">
+								<i class="align-middle" data-feather="users"></i> <span class="align-middle">Quản lý người dùng</span>
+							</a>
+						</li>
+					<?php } ?>
 					<li class="sidebar-header text-info">
 						PHÂN LOẠI
 					</li>
@@ -188,7 +188,7 @@
 							<!-- Bổ sung một số thông tin vào menu người dùng -->
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-								<img src="../../images/users/user.png" class="avatar img-fluid rounded me-1" alt="Quản trị viên" />
+								<img src="../../images/users/<?php echo $_SESSION["nguoidung"]["hinhanh"] ; ?>" class="avatar img-fluid rounded me-1" alt="<?php echo $_SESSION["nguoidung"]["hinhanh"];?>" />
 								<span class="text-dark">
 									Chào
 									<?php

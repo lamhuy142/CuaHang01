@@ -1,3 +1,4 @@
 <?php
-// session_start();    // bắt đầu session (đặt ổ đầu trang)
-header("location:qlsanpham"); //kiểm tra người dùng 
+session_start();    // bắt đầu session (đặt ổ đầu trang)
+header("Location:ktnguoidung"); //kiểm tra người dùng 
+?>
