@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 19, 2023 lúc 11:44 AM
+-- Thời gian đã tạo: Th10 19, 2023 lúc 12:02 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -24,14 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `loaiquyen`
---
--- Error reading structure for table cuahangcaykieng.loaiquyen: #1932 - Table &#039;cuahangcaykieng.loaiquyen&#039; doesn&#039;t exist in engine
--- Error reading data for table cuahangcaykieng.loaiquyen: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `cuahangcaykieng`.`loaiquyen`&#039; at line 1
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `nguoidung`
 --
 
@@ -41,10 +33,15 @@ CREATE TABLE `nguoidung` (
   `sodienthoai` varchar(10) NOT NULL,
   `matkhau` varchar(255) NOT NULL,
   `hoten` varchar(255) NOT NULL,
-  `loai` tinyint(4) NOT NULL,
+  `loai` int(4) NOT NULL,
   `trangthai` tinyint(4) NOT NULL,
   `hinhanh` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `nguoidung`
+--
+
 INSERT INTO `nguoidung` (`id`, `email`, `sodienthoai`, `matkhau`, `hoten`, `loai`, `trangthai`, `hinhanh`) VALUES
 (1, 'abc@abc.com', '0123456789', '900150983cd24fb0d6963f7d28e17f72', 'Long Xuyên', 1, 1, 'female.png'),
 (2, 'def@abc.com', '0000011111', '900150983cd24fb0d6963f7d28e17f72', 'Doraemon', 2, 1, 'doraemon.jpg');
@@ -67,6 +64,26 @@ CREATE TABLE `phanloai` (
 INSERT INTO `phanloai` (`id`, `tenpl`) VALUES
 (1, 'Cây kiểng trong nhà'),
 (2, 'Cây kiểng ngoài trời');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `quyen`
+--
+
+CREATE TABLE `quyen` (
+  `id` int(11) NOT NULL,
+  `tenquyen` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `quyen`
+--
+
+INSERT INTO `quyen` (`id`, `tenquyen`) VALUES
+(1, 'Quản Trị Viên'),
+(2, 'Nhân Viên'),
+(3, 'Khách Hàng');
 
 -- --------------------------------------------------------
 
@@ -111,12 +128,19 @@ INSERT INTO `sanpham` (`id`, `tensp`, `phanloaisp`, `mota`, `giagoc`, `giaban`, 
 -- Chỉ mục cho bảng `nguoidung`
 --
 ALTER TABLE `nguoidung`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `phanquyen` (`loai`);
 
 --
 -- Chỉ mục cho bảng `phanloai`
 --
 ALTER TABLE `phanloai`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `quyen`
+--
+ALTER TABLE `quyen`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -143,6 +167,12 @@ ALTER TABLE `phanloai`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT cho bảng `quyen`
+--
+ALTER TABLE `quyen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
@@ -151,6 +181,12 @@ ALTER TABLE `sanpham`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `nguoidung`
+--
+ALTER TABLE `nguoidung`
+  ADD CONSTRAINT `phanquyen` FOREIGN KEY (`loai`) REFERENCES `quyen` (`id`);
 
 --
 -- Các ràng buộc cho bảng `sanpham`
