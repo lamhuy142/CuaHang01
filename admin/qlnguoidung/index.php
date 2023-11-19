@@ -29,8 +29,8 @@ switch ($action) {
         break;
     case "xulythem":
         //xử lý load ảnh
-        $hinhanh = "images/products/" . basename($_FILES["fileanh"]["name"]); // đường dẫn ảnh lưu trong db
-        $duongdan = "../../" . $hinhanh; //nơi lưu file upload
+        $hinhanh = basename($_FILES["fileanh"]["name"]); // đường dẫn ảnh lưu trong db
+        $duongdan = "../../images/products/" . $hinhanh; //nơi lưu file upload
         move_uploaded_file($_FILES["fileanh"]["tmp_name"], $duongdan);
         //xử lý thêm mặt hàng
         $nguoidungmoi = new NGUOIDUNG();

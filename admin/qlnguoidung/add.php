@@ -5,8 +5,8 @@
 	<div class="md-3 mt-3">
 		<label for="optquyen" class="form-label">Phân quyền</label>
 		<select class="form-select" name="optquyen">
-			<?php foreach ($loaiquyuen as $l) : ?>
-				<option value="<?php echo $l['id']; ?>"><?php echo $l['tenquyen']; ?></option>
+			<?php foreach ($quyen as $q) : ?>
+				<option value="<?php echo $q['id']; ?>"><?php echo $q['tenquyen']; ?></option>
 			<?php endforeach; ?>
 		</select>
 	</div>
@@ -24,7 +24,7 @@
 	</div>
 	<div class="md-3 mt-3">
 		<label for="txtmatkhau" class="form-label">Mật khẩu</label>
-		<input class="form-control" type="text" name="txtmatkhau" placeholder="Nhập mật khẩu(mb5)"></input>
+		<input class="form-control" type="text" name="txtmatkhau" placeholder="Nhập mật khẩu"></input>
 	</div>
 	<div class="md-3 mt-3">
 		<label for="txttrangthai" class="form-label">Trạng thái</label>
