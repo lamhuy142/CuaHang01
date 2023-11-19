@@ -35,15 +35,12 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <!-- <div class="input-group">
-                        <div class="form-outline">
-                            <input type="search" id="form1" class="form-control" />
-                            <label class="form-label" for="form1">Search</label>
+                    <form class="d-flex">
+                        <div class="input-group">
+                            <input type="text" class="form-control " placeholder="Search">
+                            <button type="button" class="btn btn-light"><i class="bi-search"></i></button>
                         </div>
-                        <button type="button" class="btn btn-primary">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div> -->
+                    </form>
                     <a href="#" class="btn btn-outline-light"><i class="bi bi-person"></i> Đăng nhập</a>&nbsp;
                     <a href="#" class="btn btn-outline-light"><i class="bi bi-cart3"></i> Giỏ hàng <span class="badge bg-danger text-white ms-1 rounded-pill">0</span></a>
                 </div>
