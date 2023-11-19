@@ -13,14 +13,14 @@
     </tr>
     <?php
     foreach ($nguoidung as $n) :
-        foreach($loaiquyuen as $l):
-            if($n["loai"] == $l["id"]) {
+        foreach($quyen as $q):
+            if($n["loai"] == $q["id"]) {
     ?>
         <tr>
             <td><?php echo $n["email"]; ?></td>
             <td><?php echo $n["sodienthoai"]; ?></td>
             <td><?php echo $n["hoten"]; ?></td>
-            <td><?php echo $l["tenquyen"]; ?></td>
+            <td><?php echo $q["tenquyen"]; ?></td>
             <td><?php echo $n["trangthai"]; ?></td>
             <td><a href="index.php?action=khoa&id=<?php echo $n['id']; ?>" class="btn btn-warning">Khóa</a></td>
         </tr>

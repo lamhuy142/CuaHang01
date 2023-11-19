@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2023 lúc 04:35 PM
+-- Thời gian đã tạo: Th10 19, 2023 lúc 11:44 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -24,6 +24,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `loaiquyen`
+--
+-- Error reading structure for table cuahangcaykieng.loaiquyen: #1932 - Table &#039;cuahangcaykieng.loaiquyen&#039; doesn&#039;t exist in engine
+-- Error reading data for table cuahangcaykieng.loaiquyen: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `cuahangcaykieng`.`loaiquyen`&#039; at line 1
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `nguoidung`
 --
 
@@ -37,14 +45,9 @@ CREATE TABLE `nguoidung` (
   `trangthai` tinyint(4) NOT NULL,
   `hinhanh` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `nguoidung`
---
-
 INSERT INTO `nguoidung` (`id`, `email`, `sodienthoai`, `matkhau`, `hoten`, `loai`, `trangthai`, `hinhanh`) VALUES
-(1, 'abc@abc.com', '0123456789', 'abc', 'Long Xuyên', 1, 1, 'signup.png'),
-(2, 'def@abc.com', '0000011111', 'abc', 'Doraemon', 2, 1, 'avatar.jpg');
+(1, 'abc@abc.com', '0123456789', '900150983cd24fb0d6963f7d28e17f72', 'Long Xuyên', 1, 1, 'female.png'),
+(2, 'def@abc.com', '0000011111', '900150983cd24fb0d6963f7d28e17f72', 'Doraemon', 2, 1, 'doraemon.jpg');
 
 -- --------------------------------------------------------
 

@@ -3,8 +3,8 @@
 <form method="post" enctype="multipart/form-data" action="index.php">
 	<input type="hidden" name="action" value="xulythem">
 	<div class="md-3 mt-3">
-		<label for="optloaiquyen" class="form-label">Loại quyền</label>
-		<select class="form-select" name="optloaiquyen">
+		<label for="optquyen" class="form-label">Phân quyền</label>
+		<select class="form-select" name="optquyen">
 			<?php foreach ($loaiquyuen as $l) : ?>
 				<option value="<?php echo $l['id']; ?>"><?php echo $l['tenquyen']; ?></option>
 			<?php endforeach; ?>

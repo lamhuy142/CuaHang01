@@ -1,5 +1,5 @@
 <?php
-class LOAIQUYEN
+class QUYEN
 {
     private $id;
     private $tenquyen;
@@ -25,11 +25,11 @@ class LOAIQUYEN
     }
 
     // Lấy danh sách
-    public function layloaiquyen()
+    public function layquyen()
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "SELECT * FROM loaiquyen";
+            $sql = "SELECT * FROM quyen";
             $cmd = $dbcon->prepare($sql);
             $cmd->execute();
             $result = $cmd->fetchAll();
@@ -43,11 +43,11 @@ class LOAIQUYEN
 
 
     // Lấy danh mục theo id
-    public function layloaiquyentheoid($id)
+    public function layquyentheoid($id)
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "SELECT * FROM loaiquyen WHERE id=:id";
+            $sql = "SELECT * FROM quyen WHERE id=:id";
             $cmd = $dbcon->prepare($sql);
             $cmd->bindValue(":id", $id);
             $cmd->execute();
@@ -60,13 +60,13 @@ class LOAIQUYEN
         }
     }
     // Thêm mới
-    public function themloaiquyen($loaiquyen)
+    public function themquyen($quyen)
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "INSERT INTO loaiquyen(tenquyen) VALUES(:tenquyen)";
+            $sql = "INSERT INTO quyen(tenquyen) VALUES(:tenquyen)";
             $cmd = $dbcon->prepare($sql);
-            $cmd->bindValue(":tenquyen", $loaiquyen->tenquyen);
+            $cmd->bindValue(":tenquyen", $quyen->tenquyen);
             $result = $cmd->execute();
             return $result;
         } catch (PDOException $e) {
@@ -76,13 +76,13 @@ class LOAIQUYEN
         }
     }
     // Xóa 
-    public function xoaloaiquyen($loaiquyen)
+    public function xoaquyen($quyen)
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "DELETE FROM loaiquyen WHERE id=:id";
+            $sql = "DELETE FROM quyen WHERE id=:id";
             $cmd = $dbcon->prepare($sql);
-            $cmd->bindValue(":id", $loaiquyen->id);
+            $cmd->bindValue(":id", $quyen->id);
             $result = $cmd->execute();
             return $result;
         } catch (PDOException $e) {
@@ -92,14 +92,14 @@ class LOAIQUYEN
         }
     }
     // Cập nhật 
-    public function sualoaiquyen($loaiquyen)
+    public function suaquyen($quyen)
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "UPDATE loaiquyen SET tenquyen=:tenquyen WHERE id=:id";
+            $sql = "UPDATE quyen SET tenquyen=:tenquyen WHERE id=:id";
             $cmd = $dbcon->prepare($sql);
-            $cmd->bindValue(":tenquyen", $loaiquyen->tenquyen);
-            $cmd->bindValue(":id", $loaiquyen->id);
+            $cmd->bindValue(":tenquyen", $quyen->tenquyen);
+            $cmd->bindValue(":id", $quyen->id);
             $result = $cmd->execute();
             return $result;
         } catch (PDOException $e) {
