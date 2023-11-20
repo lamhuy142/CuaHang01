@@ -34,16 +34,27 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="d-flex">
-                    <form class="d-flex">
-                        <div class="input-group">
-                            <input type="text" class="form-control " placeholder="Search">
-                            <button type="button" class="btn btn-light"><i class="bi-search"></i></button>
+                <div class="row">
+                    <div class="col ">
+                        <form class="d-flex" method="post" action="index.php?action=search">
+                            <div class="input-group">
+                                <input type="text" class="form-control " placeholder="Search" name="txtsearch">
+                                <input type="submit" class="form-control" name="timkiem" value="tìm kiếm">
+                                <!--<a class="text-decoration-none text-dark " href="index.php?action=search" name="timkiem">
+                                <button type="submit" class="btn btn-light"><i class="bi-search"></i></button>
+                            </a> -->
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col ">
+                        <div class="d-flex">
+
+                            <a href="#" class="btn btn-outline-light"><i class="bi bi-person"></i> Đăng nhập</a>&nbsp;
+                            <a href="#" class="btn btn-outline-light"><i class="bi bi-cart3"></i> Giỏ hàng <span class="badge bg-danger text-white ms-1 rounded-pill">0</span></a>
                         </div>
-                    </form>
-                    <a href="#" class="btn btn-outline-light"><i class="bi bi-person"></i> Đăng nhập</a>&nbsp;
-                    <a href="#" class="btn btn-outline-light"><i class="bi bi-cart3"></i> Giỏ hàng <span class="badge bg-danger text-white ms-1 rounded-pill">0</span></a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </nav>

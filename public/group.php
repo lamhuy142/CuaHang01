@@ -45,7 +45,7 @@ if($sanpham != null){
     endforeach; 
     }
     else{
-        echo "<p>Danh mục này hiện chưa có mặt hàng. Vui lòng xem danh mục khác...</p>";
+        echo "<p>Loại cây này hiện chưa có sản phẩm. Vui lòng xem phân loại khác...</p>";
     }
 ?>              
 </div>
