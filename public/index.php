@@ -56,6 +56,9 @@ switch ($action) {
                 echo "hãy nhập từ khóa tìm kiếm";
             }
         }
+    case "giohang":
+       
+        include("giohang.php");
         break;
     default:
         break;
