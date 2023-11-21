@@ -37,19 +37,17 @@
                     </li>
                 </ul>
                 <div class="row">
-                    <div class="col ">
+                    <div class="col-5 ">
                         <form class="d-flex" method="post" action="index.php?action=search">
                             <div class="input-group">
                                 <input type="text" class="form-control " placeholder="Search" name="txtsearch">
-                                <input type="submit" class="form-control bg-info btn btn-outline-light" name="timkiem" value="tìm kiếm">
-                                <!--<a class="text-decoration-none text-dark " href="index.php?action=search" name="timkiem">
-                                <button type="submit" class="btn btn-light"><i class="bi-search"></i></button>
-                            </a> -->
+                                <!-- <input type="submit" class="form-control bg-info btn btn-outline-light" name="timkiem" value="tìm kiếm"> -->
+                                <button type="submit" class=" btn btn-light" name="timkiem" ><i class="bi-search"></i></button>
                             </div>
                         </form>
                     </div>
-                    <div class="col ">
-                        <div class="d-flex">
+                    <div class="col-7 ">
+                        <div class="d-flex ">
 
                             <a href="../index.php?action=dangnhap" class="btn btn-outline-light"><i class="bi bi-person"></i> Đăng nhập</a>&nbsp;
                             <a href="../cart.php" class="btn btn-outline-light"><i class="bi bi-cart3"></i> Giỏ hàng <span class="badge bg-danger text-white ms-1 rounded-pill">0</span></a>

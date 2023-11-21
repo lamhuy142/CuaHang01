@@ -76,11 +76,11 @@
 						</a>
 					</li>
 
-					<li class="sidebar-item">
+					<!-- <li class="sidebar-item">
 						<a class="sidebar-link" href="">
 							<i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Quản lý doanh thu</span>
 						</a>
-					</li>
+					</li> -->
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="">
@@ -90,7 +90,7 @@
 
 
 
-					<li class="sidebar-header text-info">
+					<!-- <li class="sidebar-header text-info">
 						CẤU HÌNH WEBSITE
 					</li>
 
@@ -104,7 +104,7 @@
 						<a class="sidebar-link" href="">
 							<i class="align-middle" data-feather="image"></i> <span class="align-middle">Hình ảnh</span>
 						</a>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</nav>
