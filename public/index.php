@@ -2,6 +2,8 @@
 require("../model/database.php");
 require("../model/phanloai.php");
 require("../model/sanpham.php");
+require("../model/giohang.php");
+
 
 
 $pl = new PHANLOAI();
@@ -53,13 +55,51 @@ switch ($action) {
                 $sanpham = $sp->timkiemsanpham($ten_tk);
                 include("search.php");
             }else{
-                echo "hãy nhập từ khóa tìm kiếm";
+                $sanpham = $sp->laysanpham();
+                include("main.php");
+            }
+            
+        }
+        break;
+    case "chovaogio":
+        if (isset($_REQUEST["id"]))
+        $id = $_REQUEST["id"];
+        if (isset($_REQUEST["soluong"]))
+        $soluong = $_REQUEST["soluong"];
+        else
+            $soluong = "1";
+        if (isset($_SESSION["giohang"][$id])) {
+            $soluong += $_SESSION["giohang"][$id];
+            $_SESSION["giohang"][$id] = $soluong;
+        } else {
+            themhangvaogio($id, $soluong);
+        }
+        $giohang = laygiohang();
+        include("cart.php");
+        break;
+    case "giohang":
+        $giohang = laygiohang();
+        include("cart.php");
+        break;
+    case "capnhatgio":
+        if (isset($_REQUEST["mh"])) {
+            $mh = $_REQUEST["mh"];
+            foreach ($mh as $id => $soluong) {
+                if ($soluong > 0)
+                    capnhatsoluong($id, $soluong);
+                else
+                    xoamotsanpham($id);
             }
         }
-    case "giohang":
-       
-        include("giohang.php");
+        $giohang = laygiohang();
+        include("cart.php");
         break;
+    case "xoagiohang":
+        xoagiohang();
+        $giohang = laygiohang();
+        include("cart.php");
+        break;
+    
     default:
         break;
 }

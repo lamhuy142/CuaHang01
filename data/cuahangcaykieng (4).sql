@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 19, 2023 lúc 12:02 PM
+-- Thời gian đã tạo: Th10 21, 2023 lúc 04:29 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -20,6 +20,49 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `cuahangcaykieng`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `diachi`
+--
+
+CREATE TABLE `diachi` (
+  `id` int(11) NOT NULL,
+  `nguoidung_id` int(11) NOT NULL,
+  `diachi` varchar(255) NOT NULL,
+  `macdinh` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `donhang`
+--
+
+CREATE TABLE `donhang` (
+  `id` int(11) NOT NULL,
+  `nguoidung_id` int(11) NOT NULL,
+  `diachi_id` int(11) NOT NULL,
+  `ngay` datetime NOT NULL,
+  `tongtien` float NOT NULL,
+  `ghichu` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `donhangct`
+--
+
+CREATE TABLE `donhangct` (
+  `id` int(11) NOT NULL,
+  `donhang_id` int(11) NOT NULL,
+  `sanpham_id` int(11) NOT NULL,
+  `dongia` float NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `thanhtien` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -44,7 +87,8 @@ CREATE TABLE `nguoidung` (
 
 INSERT INTO `nguoidung` (`id`, `email`, `sodienthoai`, `matkhau`, `hoten`, `loai`, `trangthai`, `hinhanh`) VALUES
 (1, 'abc@abc.com', '0123456789', '900150983cd24fb0d6963f7d28e17f72', 'Long Xuyên', 1, 1, 'female.png'),
-(2, 'def@abc.com', '0000011111', '900150983cd24fb0d6963f7d28e17f72', 'Doraemon', 2, 1, 'doraemon.jpg');
+(2, 'def@abc.com', '0000011111', '900150983cd24fb0d6963f7d28e17f72', 'Doraemon', 2, 1, 'doraemon.jpg'),
+(5, '456@abc.com', '0456456456', '900150983cd24fb0d6963f7d28e17f72', 'kjajhdfkjsd', 3, 1, 'user.png');
 
 -- --------------------------------------------------------
 
@@ -109,10 +153,10 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`id`, `tensp`, `phanloaisp`, `mota`, `giagoc`, `giaban`, `soluongton`, `hinhanh`, `luotxem`, `luotmua`) VALUES
-(1, 'Cây lưỡi hổ', 1, 'Cây lưỡi hổ là loại đã rất quen thuộc với nhiều người. Đây là loại cây cảnh trong nhà rất phù hợp với những người tuổi Hợi. Theo phong thủy, những người này có bản trầm nhưng lại không biết cách tiết kiệm, có phần hoang phí. Đặt cây lưỡi hổ bên cạnh sẽ giúp kiềm lại bản tính, giữ tiền giúp con đường sự nghiệp đi lên, dễ phát tài phát lộc.', 30000, 30000, 3, 'images/products/cayluoiho.jpg', 0, 0),
+(1, 'Cây lưỡi hổ', 1, 'Cây lưỡi hổ là loại đã rất quen thuộc với nhiều người. Đây là loại cây cảnh trong nhà rất phù hợp với những người tuổi Hợi. Theo phong thủy, những người này có bản trầm nhưng lại không biết cách tiết kiệm, có phần hoang phí. Đặt cây lưỡi hổ bên cạnh sẽ giúp kiềm lại bản tính, giữ tiền giúp con đường sự nghiệp đi lên, dễ phát tài phát lộc.', 30000, 30000, 3, 'images/products/cayluoiho.jpg', 1, 0),
 (2, 'Cây tuyết tùng', 1, 'Cây tuyết tùng còn được biết đến với tên gọi cây bách Nhật Bản. Nhiều người tin rằng đây là một loại cây cảnh vô cùng linh thiêng. Đặc biệt, loại cây này rất thích hợp với môi trường ít nắng và có thể cung cấp độ ẩm giúp không khí thêm trong lành.', 90000, 85000, 10, 'images/products/caytuyetung.jpg', 0, 0),
-(3, 'Cây trầu bà', 1, 'Cây trầu bà được biết đến là biểu tượng của sức khỏe và tuổi thọ. Sự vươn lên không ngừng của trầu bà cũng thể hiện phước lành và may mắn liên tục tới trong gia đình. Chính vì vậy nếu bạn đang tìm kiếm một loại cây cảnh trong nhà thì không nên bỏ qua loài cây này.\r\n\r\nTùy vào các loại cây trầu bà khác nhau bạn có thể lựa chọn vị trí đặt phù hợp. Nóc tủ, bàn làm việc, cửa sổ đều là những vị trí có thể đặt cây. ', 100000, 88000, 13, 'images/products/caytrauba.jpg', 0, 0),
-(4, 'Cây dương xỉ', 1, 'Tài vượng tấn tới khi cây phát triển mạnh chính là ý nghĩa mà nhiều người luôn nhắc về cây dương xỉ. Đặt chậu cây cảnh trên bàn làm việc theo vị trí tay thuận chính là bí quyết giúp loài cây cảnh trong nhà này phát huy công dụng một cách tốt nhất. Theo phong thủy, ngoài bàn làm việc, bạn cũng có trồng một cây phong thủy ở góc trái của ngôi nhà. Nếu chôn thêm 9 đồng xu phía dưới thì gia chủ sẽ luôn gặp may mắn, hút tài lộc và giàu có. ', 30000, 20000, 5, 'images/products/cayduongxi.jpg', 0, 0),
+(3, 'Cây trầu bà', 1, 'Cây trầu bà được biết đến là biểu tượng của sức khỏe và tuổi thọ. Sự vươn lên không ngừng của trầu bà cũng thể hiện phước lành và may mắn liên tục tới trong gia đình. Chính vì vậy nếu bạn đang tìm kiếm một loại cây cảnh trong nhà thì không nên bỏ qua loài cây này.\r\n\r\nTùy vào các loại cây trầu bà khác nhau bạn có thể lựa chọn vị trí đặt phù hợp. Nóc tủ, bàn làm việc, cửa sổ đều là những vị trí có thể đặt cây. ', 100000, 88000, 13, 'images/products/caytrauba.jpg', 2, 0),
+(4, 'Cây dương xỉ', 1, 'Tài vượng tấn tới khi cây phát triển mạnh chính là ý nghĩa mà nhiều người luôn nhắc về cây dương xỉ. Đặt chậu cây cảnh trên bàn làm việc theo vị trí tay thuận chính là bí quyết giúp loài cây cảnh trong nhà này phát huy công dụng một cách tốt nhất. Theo phong thủy, ngoài bàn làm việc, bạn cũng có trồng một cây phong thủy ở góc trái của ngôi nhà. Nếu chôn thêm 9 đồng xu phía dưới thì gia chủ sẽ luôn gặp may mắn, hút tài lộc và giàu có. ', 30000, 20000, 5, 'images/products/cayduongxi.jpg', 9, 0),
 (5, 'Cây cau cảnh', 2, 'Cây cau cảnh – sự lựa chọn của nhiều khách hàng\r\n\r\nCây cau cảnh là loại cây thuộc họ Arecaceae. Đây là một trong những cây bóng mát đang được đông đảo người Việt lựa chọn, trồng tại nhiều công trình khác nhau.\r\n\r\nCây cau cảnh có mức sinh trưởng nhanh, lại ít sâu bệnh hại, chịu được các điều kiện thời bất thuận. Đồng thời, chúng không tốn nhiều công sức chăm sóc.\r\n\r\nVẻ đẹp đơn sơ từ những tán lá xanh tươi. Kết hợp với hình dáng cắt xẻ như lá dừa, dáng cây thẳng đứng, cây góp phần không nhỏ về tính thẩm mỹ cho không gian xung quanh. Đồng thời, theo phong thủy, cây cau cảnh còn mang tới nhiều điều may mắn, tài lộc cũng như xua đi sự nguy hiểm, thể hiện sự vững chắc, kiên cường vượt qua khó khăn, trở ngại trong cuộc sống.', 99000, 99000, 12, 'images/products/caycau.jpg', 0, 0),
 (6, 'Cây lộc vừng', 2, 'Cây lộc vừng đem lại tài lộc cho gia chủ\r\n\r\nCây lộc vừng đã và đang trở thành sự lựa chọn của rất nhiều người Việt. Bởi không chỉ đem lại bóng mát mà cây còn sở hữu ý nghĩa phong thủy tuyệt vời: thu hút, đem lại tài lộc cho gia đình, khí vượng cho gia chủ.\r\n\r\nNgoài ra, cây lộc vừng ưa sáng, thích nghi được với nhiều điều kiện thời tiết khác nhau, khả năng sinh trưởng, phát triển nhanh. Cùng với đó là dáng cây, thế cây độc đáo, dễ uốn nắn tạo ra đường nét mới lạ, mang lại giá trị làm đẹp cao.', 50000, 50000, 5, 'images/products/caylocvung.jpg', 0, 0),
 (7, 'Cây giáng hương', 2, 'Cây giáng hương với sắc màu vàng đẹp, rực rỡ, tô điểm cho không gian xung quanh\r\n\r\nCây giáng hương là loại cây sở hữu hình dáng đẹp: thân thẳng, tán rộng, hoa màu vàng đẹp, rực rỡ, mùi thơm đặc trưng. Hơn nữa, cây ít rụng lá, xanh quanh năm và không tốn nhiều thời gian, công sức trồng, chăm sóc. Do đó, chẳng lạ gì khi chúng trở thành sự lựa chọn của nhiều khách hàng.', 500000, 400000, 6, 'images/products/caygianghuong.jpg', 0, 0),
@@ -123,6 +167,29 @@ INSERT INTO `sanpham` (`id`, `tensp`, `phanloaisp`, `mota`, `giagoc`, `giaban`, 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `diachi`
+--
+ALTER TABLE `diachi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `diachi` (`nguoidung_id`);
+
+--
+-- Chỉ mục cho bảng `donhang`
+--
+ALTER TABLE `donhang`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nguoidung_dh` (`nguoidung_id`),
+  ADD KEY `diachi_dh` (`diachi_id`);
+
+--
+-- Chỉ mục cho bảng `donhangct`
+--
+ALTER TABLE `donhangct`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `hdct_dh` (`donhang_id`),
+  ADD KEY `dhct_sp` (`sanpham_id`);
 
 --
 -- Chỉ mục cho bảng `nguoidung`
@@ -155,10 +222,28 @@ ALTER TABLE `sanpham`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `diachi`
+--
+ALTER TABLE `diachi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `donhang`
+--
+ALTER TABLE `donhang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `donhangct`
+--
+ALTER TABLE `donhangct`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `nguoidung`
 --
 ALTER TABLE `nguoidung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `phanloai`
@@ -181,6 +266,26 @@ ALTER TABLE `sanpham`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `diachi`
+--
+ALTER TABLE `diachi`
+  ADD CONSTRAINT `diachi` FOREIGN KEY (`nguoidung_id`) REFERENCES `nguoidung` (`id`);
+
+--
+-- Các ràng buộc cho bảng `donhang`
+--
+ALTER TABLE `donhang`
+  ADD CONSTRAINT `diachi_dh` FOREIGN KEY (`diachi_id`) REFERENCES `diachi` (`id`),
+  ADD CONSTRAINT `nguoidung_dh` FOREIGN KEY (`nguoidung_id`) REFERENCES `nguoidung` (`id`);
+
+--
+-- Các ràng buộc cho bảng `donhangct`
+--
+ALTER TABLE `donhangct`
+  ADD CONSTRAINT `dhct_sp` FOREIGN KEY (`sanpham_id`) REFERENCES `sanpham` (`id`),
+  ADD CONSTRAINT `hdct_dh` FOREIGN KEY (`donhang_id`) REFERENCES `donhang` (`id`);
 
 --
 -- Các ràng buộc cho bảng `nguoidung`

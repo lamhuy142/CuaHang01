@@ -47,7 +47,7 @@
             </div>
     <?php
         endforeach;
-    } else {
+    }else {
         echo "<p>Kết quả tìm kiếm không có. Vui lòng nhập từ khóa khác...</p>";
     }
     ?>

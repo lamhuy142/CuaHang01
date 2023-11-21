@@ -21,7 +21,7 @@ function capnhatsoluong($id, $soluong)
 }
 
 // Xóa một sản phẩm trong giỏ hàng
-function xoamotmathang($id)
+function xoamotsanpham($id)
 {
     if (isset($_SESSION['giohang'][$id])) {
         unset($_SESSION['giohang'][$id]);
@@ -34,19 +34,19 @@ function laygiohang()
 
     //Tạo mảng rỗng để lưu danh sách sản phẩm trong giỏ
     $mh = array();
-    $mh_db = new MATHANG();
+    $mh_db = new SANPHAM();
 
     //Duyệt mảng SESSION giohang và lấy từng id sản phẩm cùng số lượng
     foreach ($_SESSION['giohang'] as $id => $soluong) {
         // Gọi hàm lấy thông tin của sản phẩm theo mã sản phẩm
-        $m = $mh_db->laymathangtheoid($id);
+        $m = $mh_db->laysanphamtheoid($id);
         $dongia = $m['giaban'];
         $solg = intval($soluong);
         // Tính tiền
         $thtien = round($dongia * $soluong, 2);
 
         // Lưu thông tin trong mảng items để hiển thị lên giỏ hàng
-        $mh[$id]['tenmathang'] = $m['tenmathang'];
+        $mh[$id]['tensp'] = $m['tensp'];
         $mh[$id]['hinhanh'] = $m['hinhanh'];
         $mh[$id]['giaban'] = $dongia;
         $mh[$id]['soluong'] = $solg;
