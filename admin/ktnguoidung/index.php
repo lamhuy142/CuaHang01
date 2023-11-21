@@ -14,7 +14,7 @@ if (isset($_REQUEST["action"])) {
 $nd = new NGUOIDUNG();
 switch ($action) {
     case "macdinh":
-        include("main.php");
+        include("profile.php");
         break;
     case "dangnhap":
         include("login.php");
