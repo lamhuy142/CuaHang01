@@ -53,22 +53,21 @@ switch ($action) {
     case "search":
         if (isset($_POST["timkiem"])) {
             $ten_tk = $_POST["txtsearch"];
-            if($ten_tk != ""){
+            if ($ten_tk != "") {
                 // lấy thông tin sản phẩm
                 $sanpham = $sp->timkiemsanpham($ten_tk);
                 include("search.php");
-            }else{
+            } else {
                 $sanpham = $sp->laysanpham();
                 include("main.php");
             }
-            
         }
         break;
     case "chovaogio":
         if (isset($_REQUEST["id"]))
-        $id = $_REQUEST["id"];
+            $id = $_REQUEST["id"];
         if (isset($_REQUEST["soluong"]))
-        $soluong = $_REQUEST["soluong"];
+            $soluong = $_REQUEST["soluong"];
         else
             $soluong = "1";
         if (isset($_SESSION["giohang"][$id])) {
@@ -110,8 +109,14 @@ switch ($action) {
         $matkhau = $_POST["txtmatkhau"];
         if ($nd->kiemtranguoidunghople($email, $matkhau) == TRUE) {
             $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
-            $sanpham = $sp->laysanpham();
-            include("main.php");
+            if ($_SESSION["nguoidung"]["loai"] == "3") {
+                $sanpham = $sp->laysanpham();
+                include("main.php");
+            }
+            else{
+                
+            }
+            
         } else {
             include("dangnhap.php");
         }

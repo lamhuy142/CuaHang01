@@ -14,6 +14,8 @@
 	<script src="../inc/js/app.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 	<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+
 
 </head>
 
@@ -188,7 +190,7 @@
 							<!-- Bổ sung một số thông tin vào menu người dùng -->
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-								<img src="../../images/users/<?php echo $_SESSION["nguoidung"]["hinhanh"] ; ?>" class="avatar img-fluid rounded me-1" alt="<?php echo $_SESSION["nguoidung"]["hinhanh"];?>" />
+								<img src="../../images/users/<?php echo $_SESSION["nguoidung"]["hinhanh"]; ?>" class="avatar img-fluid rounded me-1" alt="<?php echo $_SESSION["nguoidung"]["hinhanh"]; ?>" />
 								<span class="text-dark">
 									Chào
 									<?php
