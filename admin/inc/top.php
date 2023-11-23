@@ -85,7 +85,7 @@
 					</li> -->
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="">
+						<a class="sidebar-link" href="../qlctkhuyenmai/index.php">
 							<i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">Chương trình khuyến mãi</span>
 						</a>
 					</li>

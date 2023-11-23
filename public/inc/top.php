@@ -48,7 +48,6 @@
                     </div>
                     <div class="col-7 ">
                         <div class="d-flex ">
-
                             <?php if (isset($_SESSION["nguoidung"])) { ?>
                                 <a href="index.php?action=hoso&id=<?php echo $_SESSION["nguoidung"]["id"];?>" class="text-decoration-none text-light btn">Welcome <?php echo $_SESSION["nguoidung"]["hoten"]; ?></a>&nbsp;
                                 <a href="index.php?action=dangxuat" class="btn btn-outline-light"><i class="bi bi-box-arrow-left"></i></a>&nbsp;

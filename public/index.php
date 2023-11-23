@@ -101,6 +101,10 @@ switch ($action) {
         $giohang = laygiohang();
         include("cart.php");
         break;
+    case "thanhtoan":
+        $giohang = laygiohang();
+        include("thanhtoan.php");
+        break;
     case "dangnhap":
         include("dangnhap.php");
         break;
