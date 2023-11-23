@@ -50,7 +50,7 @@
                         <div class="d-flex ">
 
                             <a href="../index.php?action=dangnhap" class="btn btn-outline-light"><i class="bi bi-person"></i> Đăng nhập</a>&nbsp;
-                            <a href="../cart.php" class="btn btn-outline-light"><i class="bi bi-cart3"></i> Giỏ hàng <span class="badge bg-danger text-white ms-1 rounded-pill">0</span></a>
+                            <a href="../cart.php" class="btn btn-outline-light"><i class="bi bi-cart3"></i> Giỏ hàng <span class="badge bg-danger text-white ms-1 rounded-pill"><?php echo demsoluongtronggio() ; ?></span></a>
                         </div>
                     </div>
                 </div>
