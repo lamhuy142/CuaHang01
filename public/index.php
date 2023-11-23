@@ -3,6 +3,7 @@ require("../model/database.php");
 require("../model/phanloai.php");
 require("../model/sanpham.php");
 require("../model/giohang.php");
+require("../model/nguoidung.php");
 
 
 
@@ -10,6 +11,8 @@ $pl = new PHANLOAI();
 $phanloai = $pl->layphanloai();
 $sp = new SANPHAM();
 $sanphamxemnhieu = $sp->laysanphamxemnhieu();
+$nd = new NGUOIDUNG();
+$nguoidung = $nd->laydanhsachnguoidung();
 
 if (isset($_REQUEST["action"])) {
     $action = $_REQUEST["action"];
@@ -77,7 +80,7 @@ switch ($action) {
         $giohang = laygiohang();
         include("cart.php");
         break;
-    case "giohang":
+    case "xemgiohang":
         $giohang = laygiohang();
         include("cart.php");
         break;
@@ -99,7 +102,44 @@ switch ($action) {
         $giohang = laygiohang();
         include("cart.php");
         break;
-    
+    case "dangnhap":
+        include("dangnhap.php");
+        break;
+    case "xldangnhap":
+        $email = $_POST["txtemail"];
+        $matkhau = $_POST["txtmatkhau"];
+        if ($nd->kiemtranguoidunghople($email, $matkhau) == TRUE) {
+            $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
+            $sanpham = $sp->laysanpham();
+            include("main.php");
+        } else {
+            include("dangnhap.php");
+        }
+        break;
+    case "dangxuat":
+        unset($_SESSION["nguoidung"]);
+        $sanpham = $sp->laysanpham();
+        include("main.php");
+        break;
+    case "hoso":
+        include("hoso.php");
+        break;
+    case "xlhoso":
+        $mand = $_POST["txtid"];
+        $email = $_POST["txtemail"];
+        $sodt = $_POST["txtsdt"];
+        $hoten = $_POST["txthoten"];
+        $hinhanh = $_POST["txthinhanh"];
+
+        if ($_FILES["fhinhanh"]["name"] != null) {
+            $hinhanh = basename($_FILES["fhinhanh"]["name"]);
+            $duongdan = "../images/users/" . $hinhanh;
+            move_uploaded_file($_FILES["fhinhanh"]["tmp_name"], $duongdan);
+        }
+        $nd->capnhatnguoidung($mand, $email, $sodt, $hoten, $hinhanh);
+        $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
+        include("hoso.php");
+        break;
     default:
         break;
 }

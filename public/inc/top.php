@@ -23,7 +23,7 @@
             <a class="navbar-brand" href="index.php"><i class="bi bi-shop-window"></i> Shop Cây Kiểng</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <ul class="navbar-nav col-5 me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Trang chính</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
@@ -42,15 +42,20 @@
                             <div class="input-group">
                                 <input type="text" class="form-control " placeholder="Search" name="txtsearch">
                                 <!-- <input type="submit" class="form-control bg-info btn btn-outline-light" name="timkiem" value="tìm kiếm"> -->
-                                <button type="submit" class=" btn btn-light" name="timkiem" ><i class="bi-search"></i></button>
+                                <button type="submit" class=" btn btn-light" name="timkiem"><i class="bi-search"></i></button>
                             </div>
                         </form>
                     </div>
                     <div class="col-7 ">
                         <div class="d-flex ">
 
-                            <a href="../index.php?action=dangnhap" class="btn btn-outline-light"><i class="bi bi-person"></i> Đăng nhập</a>&nbsp;
-                            <a href="../cart.php" class="btn btn-outline-light"><i class="bi bi-cart3"></i> Giỏ hàng <span class="badge bg-danger text-white ms-1 rounded-pill"><?php echo demsoluongtronggio() ; ?></span></a>
+                            <?php if (isset($_SESSION["nguoidung"])) { ?>
+                                <a href="index.php?action=hoso&id=<?php echo $_SESSION["nguoidung"]["id"];?>" class="text-decoration-none text-light btn">Welcome <?php echo $_SESSION["nguoidung"]["hoten"]; ?></a>&nbsp;
+                                <a href="index.php?action=dangxuat" class="btn btn-outline-light"><i class="bi bi-box-arrow-left"></i></a>&nbsp;
+                            <?php } else { ?>
+                                <a href="index.php?action=dangnhap" class="btn btn-outline-light"><i class="bi bi-person"></i> </a>&nbsp;
+                            <?php } ?>
+                            <a href="index.php?action=xemgiohang" class="btn btn-outline-light"><i class="bi bi-cart3"></i><span class="badge bg-danger text-white ms-1 rounded-pill"><?php echo demsoluongtronggio(); ?></span></a>
                         </div>
                     </div>
                 </div>
