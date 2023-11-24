@@ -1,6 +1,7 @@
 <?php
 require("../../model/database.php");
 require("../../model/nguoidung.php");
+require("../../model/quyen.php");
 // Biến $isLogin cho biết người dùng đăng nhập chưa
 $isLogin = isset($_SESSION["nguoidung"]);
 // Kiểm tra hành động $action: yêu cầu đăng nhập nếu chưa xác thực
@@ -12,6 +13,7 @@ if (isset($_REQUEST["action"])) {
     $action = "macdinh";
 }
 $nd = new NGUOIDUNG();
+$pq = new QUYEN();
 switch ($action) {
     case "macdinh":
         include("profile.php");
@@ -26,7 +28,7 @@ switch ($action) {
             $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
             include("main.php");
         // } elseif( $_SESSION["nguoidung"]["loai"] == 3 ){
-        //     include("../../public/main.php");
+        //     include("../../../public/main.php");
         } else {
             include("login.php");
         }
@@ -53,6 +55,30 @@ switch ($action) {
         $nd->capnhatnguoidung($mand,$email,$sodt,$hoten,$hinhanh);
         $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
         include("main.php");
+        break;
+    case "dangky":
+        include("register.php");
+        break;
+    case "xldangky":
+        $loai = $_POST["txtloai"];
+        //xử lý load ảnh
+        $hinhanh = basename($_FILES["fhinhanh"]["name"]); // đường dẫn ảnh lưu trong db
+        $duongdan = "../../images/products/" . $hinhanh; //nơi lưu file upload
+        move_uploaded_file($_FILES["fhinhanh"]["tmp_name"], $duongdan);
+        //xử lý thêm mặt hàng
+        $nguoidungmoi = new NGUOIDUNG();
+        $nguoidungmoi->setemail($_POST["txtemail"]);
+        $nguoidungmoi->setsodienthoai($_POST["txtsodienthoai"]);
+        $nguoidungmoi->setmatkhau($_POST["txtmatkhau"]);
+        $nguoidungmoi->sethoten($_POST["txthoten"]);
+        $nguoidungmoi->setloai($loai);
+        $nguoidungmoi->settrangthai($_POST["txttrangthai"]);
+        $nguoidungmoi->sethinhanh($hinhanh);
+        // thêm
+        $nd->themnguoidung($nguoidungmoi);
+        // load người dùng
+        $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($_POST["txtemail"]);
+        include("profile.php");
         break;
     default:
         break;

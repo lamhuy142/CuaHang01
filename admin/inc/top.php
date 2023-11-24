@@ -72,8 +72,10 @@
 						</a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="">
+					<li class="sidebar-item
+					<?php if (strpos($_SERVER["REQUEST_URI"], "qldonhang") != false) echo "active"; ?>
+					">
+						<a class="sidebar-link" href="../qldonhang/index.php">
 							<i class="align-middle" data-feather="truck"></i> <span class="align-middle">Quản lý đơn hàng</span>
 						</a>
 					</li>

@@ -1,0 +1,32 @@
+<?php include("../inc/top.php"); ?>
+
+<h4 class="text-info">Danh sách đơn hàng</h4>
+<table class="table table-hover">
+    <tr>
+        <th class="text-info">Người dùng</th>
+        <th class="text-info">Địa chỉ</th>
+        <th class="text-info">Ngày</th>
+        <th class="text-info">Tổng tiền</th>
+        <th class="text-info">Ghi chú</th>
+    </tr>
+    <?php
+    foreach ($donhang as $d) :
+        foreach ($diachi as $a) :
+            foreach ($nguoidung as $n) :
+                if ($d["diachi_id"] == $a["id"] && $d["nguoidung_id"] == $n["id"]) {
+    ?>
+                    <tr>
+                        <td><?php echo $n["hoten"]; ?></td>
+                        <td><?php echo $a["diachi"]; ?></td>
+                        <td><?php echo $d["ngay"]; ?></td>
+                        <td><?php echo $d["tongtien"]; ?></td>
+                        <td><?php echo $d["ghichu"]; ?></td>
+                    </tr>
+    <?php
+                }
+            endforeach;
+        endforeach;
+    endforeach;
+    ?>
+</table>
+<?php include("../inc/bottom.php"); ?>

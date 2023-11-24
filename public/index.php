@@ -4,6 +4,9 @@ require("../model/phanloai.php");
 require("../model/sanpham.php");
 require("../model/giohang.php");
 require("../model/nguoidung.php");
+require("../model/diachi.php");
+require("../model/donhang.php");
+require("../model/donhangct.php");
 
 
 
@@ -13,6 +16,9 @@ $sp = new SANPHAM();
 $sanphamxemnhieu = $sp->laysanphamxemnhieu();
 $nd = new NGUOIDUNG();
 $nguoidung = $nd->laydanhsachnguoidung();
+$dh = new DONHANG();
+$dhct = new DONHANGCT();
+$dc = new DIACHI();
 
 if (isset($_REQUEST["action"])) {
     $action = $_REQUEST["action"];
@@ -101,10 +107,7 @@ switch ($action) {
         $giohang = laygiohang();
         include("cart.php");
         break;
-    case "thanhtoan":
-        $giohang = laygiohang();
-        include("thanhtoan.php");
-        break;
+
     case "dangnhap":
         include("dangnhap.php");
         break;
@@ -116,11 +119,8 @@ switch ($action) {
             if ($_SESSION["nguoidung"]["loai"] == "3") {
                 $sanpham = $sp->laysanpham();
                 include("main.php");
+            } else {
             }
-            else{
-                
-            }
-            
         } else {
             include("dangnhap.php");
         }
@@ -148,6 +148,65 @@ switch ($action) {
         $nd->capnhatnguoidung($mand, $email, $sodt, $hoten, $hinhanh);
         $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
         include("hoso.php");
+        break;
+    case "thanhtoan":
+        $giohang = laygiohang();
+        include("thanhtoan.php");
+        break;
+    case "htdonhang":
+        
+        //xử lý thêm diachi
+        $diachimoi = new DIACHI();
+        $macdinh = "1";
+        $diachimoi->setnguoidung_id($_POST["txtid"]);
+        $diachimoi->setdiachi($_POST["txtdiachi"]);
+        $diachimoi->setmacdinh($macdinh);
+        // thêm
+        $dc->themdiachi($diachimoi);
+        //xử lý thêm donhang
+        $donhangmoi = new DONHANG();
+        $date = getdate();
+        $diachi_id = (array)$dc->layidtheodiachi($_POST["txtdiachi"]);
+        $ngay = $date['mday'] . $date['mon'] . $date['year'] ;
+        $ghichu = " " ;
+        $donhangmoi->setnguoidung_id($_POST["txtid"]);
+        $donhangmoi->setdiachi_id($diachi_id);
+        $donhangmoi->setngay($ngay);
+        $donhangmoi->settongtien($_POST["txttongtien"]);
+        $donhangmoi->setghichu($ghichu);
+        // thêm
+        $dh->themdonhang($donhangmoi);
+        // //xử lý thêm donhangct
+        // $donhangctmoi = new DONHANGCT();
+        
+
+        $sanpham = $sp->laysanpham();
+        include("main.php");
+        break;
+    case "dangky":
+        include("dangky.php");
+        break;
+    case "xldangky":
+        $loai = $_POST["txtloai"];
+        //xử lý load ảnh
+        $hinhanh = basename($_FILES["fhinhanh"]["name"]); // đường dẫn ảnh lưu trong db
+        $duongdan = "../images/products/" . $hinhanh; //nơi lưu file upload
+        move_uploaded_file($_FILES["fhinhanh"]["tmp_name"], $duongdan);
+        //xử lý thêm mặt hàng
+        $nguoidungmoi = new NGUOIDUNG();
+        $nguoidungmoi->setemail($_POST["txtemail"]);
+        $nguoidungmoi->setsodienthoai($_POST["txtsodienthoai"]);
+        $nguoidungmoi->setmatkhau($_POST["txtmatkhau"]);
+        $nguoidungmoi->sethoten($_POST["txthoten"]);
+        $nguoidungmoi->setloai($loai);
+        $nguoidungmoi->settrangthai($_POST["txttrangthai"]);
+        $nguoidungmoi->sethinhanh($hinhanh);
+        // thêm
+        $nd->themnguoidung($nguoidungmoi);
+        // load 
+        $sanpham = $sp->laysanpham();
+        $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($_POST["txtemail"]);
+        include("main.php");
         break;
     default:
         break;

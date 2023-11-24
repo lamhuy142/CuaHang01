@@ -6,8 +6,9 @@
             <h4 class="text-info text-left">Thông tin khách hàng</h4>
         </div>
         <div class="card-body">
-            <form method="post" enctype="multipart/form-data" action="index.php">
+            <form method="post" action="index.php">
                 <input type="hidden" name="txtid" value="<?php echo $_SESSION['nguoidung']['id']; ?>">
+                <input type="hidden" name="txttongtien" value="<?php echo number_format(tinhtiengiohang()); ?>">
                 <input type="hidden" name="action" value="htdonhang">
                 <div class="my-3 mt-3">
                     <label for="email" class="form-label">Email:</label>
@@ -36,20 +37,34 @@
             <h4 class="text-info text-left">Thông tin đơn hàng</h4>
         </div>
         <div class="card-body">
-            <table class="table table-sm ">
+            <!-- <form action=""> -->
+            <table class="table table-bordered">
                 <tr>
-                    <th>Sản phẩm</th>
-                    <th>Đơn giá</th>
-                    <th>Số lượng</th>
-                    <th>Thành tiền</th>
+                    <th class="text-white bg-info">Sản phẩm</th>
+                    <th class="text-white bg-info">Đơn giá</th>
+                    <th class="text-white bg-info">Số lượng</th>
+                    <th class="text-white bg-info">Thành tiền</th>
                 </tr>
+                <?php foreach ($giohang as $id => $mh) : ?>
+                    <tr>
+                        <td><img width="50" src="../<?php echo $mh["hinhanh"]; ?>" alt=""> <?php echo $mh["tensp"]; ?></td>
+                        <td><?php echo number_format($mh["giaban"]); ?>đ</td>
+                        <td><?php echo $mh["soluong"]; ?></td>
+                        <td><?php echo number_format($mh["thanhtien"]); ?>đ</td>
+                    </tr>
+                <?php endforeach; ?>
                 <tr>
-                    <td><?php echo $_SESSION["giohang"]["hinhanh"].''.$_SESSION["giohang"]["tensp"] ; ?></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td colspan="3" class="text-white bg-info">
+                        <dt>Tổng tiền</dt>
+                    </td>
+                    <td class="text-white bg-info">
+                        <dt><?php echo number_format(tinhtiengiohang()); ?>đ</dt>
+                    </td>
                 </tr>
+
             </table>
+            <!-- </form> -->
+
         </div>
     </div>
 </div>
