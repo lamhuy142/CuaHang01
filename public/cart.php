@@ -9,6 +9,7 @@ if (demhangtronggio() == 0) { ?>
     <form action="index.php">
         <table class="table table-hove">
             <tr>
+                <th>ID</th>
                 <th>Hình ảnh</th>
                 <th>Tên hàng</th>
                 <th>Đơn giá</th>
@@ -17,6 +18,7 @@ if (demhangtronggio() == 0) { ?>
             </tr>
             <?php foreach ($giohang as $id => $mh) : ?>
                 <tr>
+                    <td><?php echo $mh["id"];?></td>
                     <td><img width="50" src="../<?php echo $mh["hinhanh"]; ?>" alt=""> </td>
                     <td><?php echo $mh["tensp"]; ?></td>
                     <td><?php echo number_format($mh["giaban"]); ?>đ</td>

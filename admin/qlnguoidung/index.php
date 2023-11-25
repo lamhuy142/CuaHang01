@@ -20,6 +20,7 @@ switch ($action) {
     case "xem":
         $quyen = $pq->layquyen();
         $nguoidung = $nd->laydanhsachnguoidung();
+        
         include("main.php");
         break;
     case "them":

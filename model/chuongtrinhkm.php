@@ -59,7 +59,7 @@ class CHUONGTRINHKM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "SELECT * FROM khuyenmai";
+            $sql = "SELECT * FROM chuongtrinhkm";
             $cmd = $dbcon->prepare($sql);
             $cmd->execute();
             $result = $cmd->fetchAll();
@@ -77,7 +77,7 @@ class CHUONGTRINHKM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "SELECT * FROM khuyenmai WHERE id=:id";
+            $sql = "SELECT * FROM chuongtrinhkm WHERE id=:id";
             $cmd = $dbcon->prepare($sql);
             $cmd->bindValue(":id", $id);
             $cmd->execute();
@@ -94,7 +94,7 @@ class CHUONGTRINHKM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "INSERT INTO khuyenmai(ten_km,mota,ngay_bd,ngay_kt) VALUES(:ten_km,:mota,:ngay_bd,:ngay_kt)";
+            $sql = "INSERT INTO chuongtrinhkm(ten_km,mota,ngay_bd,ngay_kt) VALUES(:ten_km,:mota,:ngay_bd,:ngay_kt)";
             $cmd = $dbcon->prepare($sql);
             $cmd->bindValue(":ten_km", $khuyenmaimoi->ten_km);
             $cmd->bindValue(":mota", $khuyenmaimoi->mota);
@@ -113,7 +113,7 @@ class CHUONGTRINHKM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "DELETE FROM khuyenmai WHERE id=:id";
+            $sql = "DELETE FROM chuongtrinhkm WHERE id=:id";
             $cmd = $dbcon->prepare($sql);
             $cmd->bindValue(":id", $khuyenmai->id);
             $result = $cmd->execute();
@@ -129,7 +129,7 @@ class CHUONGTRINHKM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "UPDATE khuyenmai SET tenkhuyenmai=:tenkhuyenmai WHERE id=:id";
+            $sql = "UPDATE chuongtrinhkm SET tenkhuyenmai=:tenkhuyenmai WHERE id=:id";
             $cmd = $dbcon->prepare($sql);
             $cmd->bindValue(":tenkhuyenmai", $khuyenmai->tenkhuyenmai);
             $cmd->bindValue(":id", $khuyenmai->id);

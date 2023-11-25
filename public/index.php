@@ -87,6 +87,7 @@ switch ($action) {
         break;
     case "xemgiohang":
         $giohang = laygiohang();
+        
         include("cart.php");
         break;
     case "capnhatgio":
