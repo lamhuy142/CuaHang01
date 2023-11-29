@@ -24,11 +24,15 @@ switch ($action) {
         break;
     case "chitiet":
         if (isset($_GET["id"])) {
-            $s = $sp->laysanphamtheoid($_GET["id"]);
+            $id_sp = $_GET["id"];
+            // tăng lượt xem lên 1
+            $sp->tangluotxem($id_sp);
+            // lấy thông tin chi tiết sản phẩm
+            $spct = $sp->laysanphamtheoid($id_sp);
+            // lấy các sản phẩm cùng danh mục
+            $mapl = $spct["phanloaisp"];
+            $sanpham = $sp->laysanphamtheophanloai($mapl);
             include("detail.php");
-        } else {
-            $sanpham = $sp->laysanpham();
-            include("main.php");
         }
         break;
     case "them":
