@@ -79,36 +79,11 @@
 							<i class="align-middle" data-feather="truck"></i> <span class="align-middle">Quản lý đơn hàng</span>
 						</a>
 					</li>
-
-					<!-- <li class="sidebar-item">
-						<a class="sidebar-link" href="">
-							<i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Quản lý doanh thu</span>
-						</a>
-					</li> -->
-
 					<li class="sidebar-item <?php if (strpos($_SERVER["REQUEST_URI"], "qlctkhuyenmai") != false) echo "active"; ?>">
 						<a class="sidebar-link" href="../qlctkhuyenmai/index.php">
 							<i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">Chương trình khuyến mãi</span>
 						</a>
 					</li>
-
-
-
-					<!-- <li class="sidebar-header text-info">
-						CẤU HÌNH WEBSITE
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="">
-							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Thông tin</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="">
-							<i class="align-middle" data-feather="image"></i> <span class="align-middle">Hình ảnh</span>
-						</a>
-					</li> -->
 				</ul>
 			</div>
 		</nav>
