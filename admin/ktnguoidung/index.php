@@ -44,6 +44,7 @@ switch ($action) {
         $mand = $_POST["txtid"];
         $email = $_POST["txtemail"];
         $sodt = $_POST["txtsdt"];
+        $diachi = $_POST["txtdiachi"];
         $hoten = $_POST["txthoten"];
         $hinhanh = $_POST["txthinhanh"];
 
@@ -52,7 +53,7 @@ switch ($action) {
             $duongdan = "../../images/users/" . $hinhanh;
             move_uploaded_file($_FILES["fhinhanh"]["tmp_name"], $duongdan);
         }
-        $nd->capnhatnguoidung($mand,$email,$sodt,$hoten,$hinhanh);
+        $nd->capnhatnguoidung($mand,$email,$sodt,$hoten,$hinhanh,$diachi);
         $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
         include("main.php");
         break;
@@ -69,6 +70,7 @@ switch ($action) {
         $nguoidungmoi = new NGUOIDUNG();
         $nguoidungmoi->setemail($_POST["txtemail"]);
         $nguoidungmoi->setsodienthoai($_POST["txtsodienthoai"]);
+        $nguoidungmoi->setdiachi($_POST["txtdiachi"]);
         $nguoidungmoi->setmatkhau($_POST["txtmatkhau"]);
         $nguoidungmoi->sethoten($_POST["txthoten"]);
         $nguoidungmoi->setloai($loai);

@@ -37,6 +37,7 @@ switch ($action) {
         $nguoidungmoi = new NGUOIDUNG();
         $nguoidungmoi->setemail($_POST["txtemail"]);
         $nguoidungmoi->setsodienthoai($_POST["txtsodienthoai"]);
+        $nguoidungmoi->setdiachi($_POST["txtdiachi"]);
         $nguoidungmoi->setmatkhau($_POST["txtmatkhau"]);
         $nguoidungmoi->sethoten($_POST["txthoten"]);
         $nguoidungmoi->setloai($_POST["optquyen"]);

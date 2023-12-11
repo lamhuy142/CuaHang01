@@ -23,6 +23,10 @@
 		<input class="form-control" type="number" name="txtsodienthoai" placeholder="Nhập số điện thoại">
 	</div>
 	<div class="md-3 mt-3">
+		<label for="txtdiachi" class="form-label">Địa chỉ</label>
+		<input class="form-control" type="text" name="txtdiachi" placeholder="Nhập địa chỉ">
+	</div>
+	<div class="md-3 mt-3">
 		<label for="txtmatkhau" class="form-label">Mật khẩu</label>
 		<input class="form-control" type="text" name="txtmatkhau" placeholder="Nhập mật khẩu"></input>
 	</div>

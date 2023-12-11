@@ -26,8 +26,8 @@ shrink-to-fit=no">
                             <div class="card-body">
                                 <div class="m-sm-3">
                                     <form action="index.php" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" name="txtloai" value="3" > 
-                                        <input type="hidden" name="txttrangthai" value="1" > 
+                                        <input type="hidden" name="txtloai" value="3">
+                                        <input type="hidden" name="txttrangthai" value="1">
                                         <div class="mb-3">
                                             <label class="form-label">Email</label>
                                             <input class="form-control form-control-lg" type="email" name="txtemail" placeholder="Nhập email" />
@@ -39,6 +39,10 @@ shrink-to-fit=no">
                                         <div class="mb-3">
                                             <label class="form-label">Số điện thoại</label>
                                             <input class="form-control form-control-lg" type="text" name="txtsodienthoai" placeholder="Nhập số điện thoại" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Địa chỉ</label>
+                                            <input class="form-control form-control-lg" type="text" name="txtdiachi" placeholder="Nhập địa chỉ" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Họ tên</label>

@@ -6,6 +6,7 @@
     <tr>
         <th class="text-info">Email</th>
         <th class="text-info">Số điện thoại</th>
+        <th class="text-info">Địa chỉ</th>
         <th class="text-info">Họ tên</th>
         <th class="text-info">Loại quyền</th>
         <th>Trạng thái</th>
@@ -19,6 +20,7 @@
                 <tr>
                     <td><?php echo $n["email"]; ?></td>
                     <td><?php echo $n["sodienthoai"]; ?></td>
+                    <td><?php echo $n["diachi"]; ?></td>
                     <td><?php echo $n["hoten"]; ?></td>
                     <td><?php echo $q["tenquyen"]; ?></td>
                     <td><?php if ($n["trangthai"] == 1) { ?>

@@ -40,6 +40,10 @@ shrink-to-fit=no">
                                             <label class="form-label">Mật khẩu</label>
                                             <input class="form-control form-control-lg" type="password" name="txtmatkhau" placeholder="Nhập mật khẩu" />
                                         </div>
+                                        <div class="my-3">
+                                            <label for="txtdiachi" class="form-label">Địa chỉ:</label>
+                                            <input type="text" class="form-control" id="diachi" placeholder="Địa chỉ" name="txtdiachi"  required>
+                                        </div>
                                         <div class="mb-3">
                                             <label class="form-label">Số điện thoại</label>
                                             <input class="form-control form-control-lg" type="text" name="txtsodienthoai" placeholder="Nhập số điện thoại" />

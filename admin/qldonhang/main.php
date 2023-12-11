@@ -11,13 +11,12 @@
     </tr>
     <?php
     foreach ($donhang as $d) :
-        foreach ($diachi as $a) :
             foreach ($nguoidung as $n) :
-                if ($d["diachi_id"] == $a["id"] && $d["nguoidung_id"] == $n["id"]) {
+                if ($d["nguoidung_id"] == $n["id"]) {
     ?>
                     <tr>
                         <td><?php echo $n["hoten"]; ?></td>
-                        <td><?php echo $a["diachi"]; ?></td>
+                        <td><?php echo $n["diachi"]; ?></td>
                         <td><?php echo $d["ngay"]; ?></td>
                         <td><?php echo $d["tongtien"]; ?></td>
                         <td><?php echo $d["ghichu"]; ?></td>
@@ -26,7 +25,6 @@
                 }
             endforeach;
         endforeach;
-    endforeach;
     ?>
 </table>
 <?php include("../inc/bottom.php"); ?>

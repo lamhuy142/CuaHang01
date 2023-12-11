@@ -6,7 +6,6 @@ require("../../model/database.php");
 require("../../model/nguoidung.php");
 require("../../model/quyen.php");
 require("../../model/donhang.php");
-require("../../model/diachi.php");
 
 
 // Xét xem có thao tác nào được chọn
@@ -17,12 +16,10 @@ if (isset($_REQUEST["action"])) {
 }
 
 $dh = new DONHANG();
-$dc = new DIACHI();
 $nd = new NGUOIDUNG();
 
 switch ($action) {
     case "xem":
-        $diachi = $dc->laydiachi();
         $donhang = $dh->laydonhang();
         $nguoidung = $nd->laydanhsachnguoidung();
 

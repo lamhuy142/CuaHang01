@@ -180,6 +180,24 @@ class SANPHAM
             exit();
         }
     }
+    // Cập nhật số lượng
+    public function giamsoluong($id, $soluongmua)
+    {
+        $dbcon = DATABASE::connect();
+        try {
+            $sql = "UPDATE sanpham SET soluongton=soluongton-:soluongmua WHERE id=:id";
+            $cmd = $dbcon->prepare($sql);
+            $cmd->bindValue(":soluongmua", $soluongmua);
+            $cmd->bindValue(":id", $id);
+            $result = $cmd->execute();
+            return $result;
+        } catch (PDOException $e) {
+            $error_message = $e->getMessage();
+            echo "<p>Lỗi truy vấn: $error_message</p>";
+            exit();
+        }
+    }
+
     // Lấy mặt hàng xem nhiều
     public function laysanphamxemnhieu()
     {
