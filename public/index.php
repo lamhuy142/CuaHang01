@@ -162,23 +162,13 @@ switch ($action) {
         $donhangmoi->setghichu($ghichu);
         // thêm
         $dh->themdonhang($donhangmoi);
-<<<<<<< HEAD
         //thêm đơn hàng chi tiết
         $dhctmoi = new DONHANGCT();
-        $dhctmoi->setdonhang_id($_POST["txtid"]);
-        $dhctmoi->setsanpham_id($ngay);
-        $dhctmoi->setthanhtien($_POST["txttongtien"]);
-        $dhctmoi->setghichu($ghichu);
-        $dhct->themdonhangct($dhctmoi);
-=======
-        // //thêm đơn hàng chi tiết
-        // $dhctmoi = new DONHANGCT();
         // $dhctmoi->setdonhang_id($_POST["txtid"]);
         // $dhctmoi->setsanpham_id($ngay);
-        // $dhctmoi->settongtien($_POST["txttongtien"]);
+        // $dhctmoi->setthanhtien($_POST["txttongtien"]);
         // $dhctmoi->setghichu($ghichu);
-        // $dhct->themdonhangct($);
->>>>>>> eba019fd77f913b0c35131ae31e8f26d68709461
+        // $dhct->themdonhangct($dhctmoi);
 
         xoagiohang();
         // $sanpham = $sp->giamsoluong($_POST["txtid"], $_POST["txtsl"]);
