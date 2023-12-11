@@ -166,9 +166,9 @@ switch ($action) {
         $dhctmoi = new DONHANGCT();
         $dhctmoi->setdonhang_id($_POST["txtid"]);
         $dhctmoi->setsanpham_id($ngay);
-        $dhctmoi->settongtien($_POST["txttongtien"]);
+        $dhctmoi->setthanhtien($_POST["txttongtien"]);
         $dhctmoi->setghichu($ghichu);
-        $dhct->themdonhangct($);
+        $dhct->themdonhangct($dhctmoi);
 
         xoagiohang();
         // $sanpham = $sp->giamsoluong($_POST["txtid"], $_POST["txtsl"]);
