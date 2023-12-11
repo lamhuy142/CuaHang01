@@ -1,12 +1,12 @@
 <?php include("inc/top.php"); ?>
 <div class="row ">
-    <h3 class="text-dark text-left">Vui lòng nhập đầy đủ thông tin</h3>
+    <h3 class="text-dark text-left">Vui lòng xác nhận thông tin</h3>
     <div class="col-6 ">
         <div class="card-header">
             <h4 class="text-info text-left">Thông tin khách hàng</h4>
         </div>
         <div class="card-body">
-            <form method="post" action="index.php">
+            <form method="post" action="../public/index.php">
                 <input type="hidden" name="txtid" value="<?php echo $_SESSION['nguoidung']['id']; ?>">
                 <input type="hidden" name="txttongtien" value="<?php echo number_format(tinhtiengiohang()); ?>">
                 <input type="hidden" name="action" value="htdonhang">
