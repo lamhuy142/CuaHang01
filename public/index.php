@@ -160,8 +160,7 @@ switch ($action) {
     case "htdonhang":
         //thêm đơn hàng
         $donhangmoi = new DONHANG();
-        $date = getdate();
-        $ngay = $date['mday'] . $date['mon'] . $date['year'];
+        $ngay = date("Y-m-d");
         $ghichu = " ";
         $donhangmoi->setnguoidung_id($_POST["txtid"]);
         $donhangmoi->setngay($ngay);
