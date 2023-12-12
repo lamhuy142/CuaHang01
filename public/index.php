@@ -160,8 +160,6 @@ switch ($action) {
         }
         break;
     case "htdonhang":
-        // Kiểm tra người dùng có tài khoản hay không
-
         //thêm đơn hàng
         $donhangmoi = new DONHANG();
         $date = getdate();
