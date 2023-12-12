@@ -17,6 +17,8 @@ $nguoidung = $nd->laydanhsachnguoidung();
 $dh = new DONHANG();
 $dhct = new DONHANGCT();
 
+// Biến $isLogin cho biết người dùng đăng nhập chưa
+$isLogin = isset($_SESSION["nguoidung"]);
 if (isset($_REQUEST["action"])) {
     $action = $_REQUEST["action"];
 } else {
@@ -146,14 +148,10 @@ switch ($action) {
         $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
         include("hoso.php");
         break;
-    case "thanhtoan":
-        // Biến $isLogin cho biết người dùng đăng nhập chưa
-        $isLogin = isset($_SESSION["nguoidung"]);
+    case "thanhtoan":   
         // Kiểm tra hành động $action: yêu cầu đăng nhập nếu chưa xác thực
-        if (isset($_REQUEST["action"])) {
-            $action = $_REQUEST["action"];
-        } elseif ($isLogin == FALSE) {
-            $action = "dangnhap";
+        if ($isLogin == FALSE) {
+            include("dangnhap.php");
         } else {
             $giohang = laygiohang();
             include("thanhtoan.php");

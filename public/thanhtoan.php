@@ -24,7 +24,7 @@
                 </div>
                 <div class="my-3">
                     <label for="txtdiachi" class="form-label">Địa chỉ:</label>
-                    <input type="text" class="form-control" id="diachi" placeholder="Nhập địa chỉ" name="txtdiachi" value="<?php echo $_SESSION['nguoidung']['diachi']; ?>" required>
+                    <input type="text" class="form-control" id="diachi" placeholder="Địa chỉ" name="txtdiachi" value="<?php echo $_SESSION['nguoidung']['diachi']; ?>" required>
                 </div>
                 <div class="my-3 text-left">
                     <input class="btn btn-primary" type="submit" value="Hoàn tất đơn hàng">
