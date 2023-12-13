@@ -1,11 +1,11 @@
 <?php
-class CHUONGTRINHKM
+class CHUONGTRINHKHUYENMAI
 {
     private $id;
     private $ten_km;
     private $mota;
-    private $ngay_bd;
-    private $ngay_kt;
+    private $phantramgiam;
+    private $hinhanh_km;
 
     public function getid()
     {
@@ -35,23 +35,23 @@ class CHUONGTRINHKM
     {
         $this->mota = $value;
     }
-    public function getngay_bd()
+    public function getphantramgiam()
     {
-        return $this->ngay_bd;
+        return $this->phantramgiam;
     }
 
-    public function setngay_bd($value)
+    public function setphantramgiam($value)
     {
-        $this->ngay_bd = $value;
+        $this->phantramgiam = $value;
     }
-    public function getngay_kt()
+    public function gethinhanh_km()
     {
-        return $this->ngay_kt;
+        return $this->hinhanh_km;
     }
 
-    public function setngay_kt($value)
+    public function sethinhanh_km($value)
     {
-        $this->ngay_kt = $value;
+        $this->hinhanh_km = $value;
     }
 
     // Lấy danh sách
@@ -59,7 +59,7 @@ class CHUONGTRINHKM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "SELECT * FROM chuongtrinhkm";
+            $sql = "SELECT * FROM chuongtrinhkhuyenmai";
             $cmd = $dbcon->prepare($sql);
             $cmd->execute();
             $result = $cmd->fetchAll();
@@ -77,7 +77,7 @@ class CHUONGTRINHKM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "SELECT * FROM chuongtrinhkm WHERE id=:id";
+            $sql = "SELECT * FROM chuongtrinhkhuyenmai WHERE id=:id";
             $cmd = $dbcon->prepare($sql);
             $cmd->bindValue(":id", $id);
             $cmd->execute();
@@ -94,12 +94,12 @@ class CHUONGTRINHKM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "INSERT INTO chuongtrinhkm(ten_km,mota,ngay_bd,ngay_kt) VALUES(:ten_km,:mota,:ngay_bd,:ngay_kt)";
+            $sql = "INSERT INTO chuongtrinhkhuyenmai(ten_km,mota,phantramgiam,hinhanh_km) VALUES(:ten_km,:mota,:phantramgiam,:hinhanh_km)";
             $cmd = $dbcon->prepare($sql);
             $cmd->bindValue(":ten_km", $khuyenmaimoi->ten_km);
             $cmd->bindValue(":mota", $khuyenmaimoi->mota);
-            $cmd->bindValue(":ngay_bd", $khuyenmaimoi->ngay_bd);
-            $cmd->bindValue(":ngay_kt", $khuyenmaimoi->ngay_kt);
+            $cmd->bindValue(":phantramgiam", $khuyenmaimoi->phantramgiam);
+            $cmd->bindValue(":hinhanh_km", $khuyenmaimoi->hinhanh_km);
             $result = $cmd->execute();
             return $result;
         } catch (PDOException $e) {
@@ -113,7 +113,7 @@ class CHUONGTRINHKM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "DELETE FROM chuongtrinhkm WHERE id=:id";
+            $sql = "DELETE FROM chuongtrinhkhuyenmai WHERE id=:id";
             $cmd = $dbcon->prepare($sql);
             $cmd->bindValue(":id", $khuyenmai->id);
             $result = $cmd->execute();
@@ -129,7 +129,7 @@ class CHUONGTRINHKM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "UPDATE chuongtrinhkm SET tenkhuyenmai=:tenkhuyenmai WHERE id=:id";
+            $sql = "UPDATE chuongtrinhkhuyenmai SET tenkhuyenmai=:tenkhuyenmai WHERE id=:id";
             $cmd = $dbcon->prepare($sql);
             $cmd->bindValue(":tenkhuyenmai", $khuyenmai->tenkhuyenmai);
             $cmd->bindValue(":id", $khuyenmai->id);
