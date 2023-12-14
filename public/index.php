@@ -117,11 +117,12 @@ switch ($action) {
             if ($_SESSION["nguoidung"]["loai"] == "3") {
                 $sanpham = $sp->laysanpham();
                 include("main.php");
-            } else {
-            }
+            // } elseif($_SESSION["nguoidung"]["loai"] == "1") {
+            //     include("../admin/ktnguoidung");
+            // }
         } else {
             include("dangnhap.php");
-        }
+        }}
         break;
     case "dangxuat":
         unset($_SESSION["nguoidung"]);
