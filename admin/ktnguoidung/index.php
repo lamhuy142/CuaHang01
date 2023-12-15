@@ -2,6 +2,7 @@
 require("../../model/database.php");
 require("../../model/nguoidung.php");
 require("../../model/quyen.php");
+require("../../model/sanpham.php");
 // Biến $isLogin cho biết người dùng đăng nhập chưa
 $isLogin = isset($_SESSION["nguoidung"]);
 // Kiểm tra hành động $action: yêu cầu đăng nhập nếu chưa xác thực
@@ -14,9 +15,12 @@ if (isset($_REQUEST["action"])) {
 }
 $nd = new NGUOIDUNG();
 $pq = new QUYEN();
+$sp = new SANPHAM();
 switch ($action) {
     case "macdinh":
-        include("profile.php");
+        $sanphamhh = $sp->laysanphamhethang();
+        
+        include("main.php");
         break;
     case "matkhau":
         $nguoidung = $nd->laydanhsachnguoidung();
@@ -26,7 +30,7 @@ switch ($action) {
         $matkhau = $_POST["matkhau"];
         $email = $_POST["email"];
 
-        $nd->doimatkhau($email,$matkhau);
+        $nd->doimatkhau($email, $matkhau);
         $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
         include("profile.php");
         break;
@@ -39,8 +43,8 @@ switch ($action) {
         if ($nd->kiemtranguoidunghople($email, $matkhau) == TRUE) {
             $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
             include("main.php");
-        // } elseif( $_SESSION["nguoidung"]["loai"] == 3 ){
-        //     include("../../../public/main.php");
+            // } elseif( $_SESSION["nguoidung"]["loai"] == 3 ){
+            //     include("../../../public/main.php");
         } else {
             include("login.php");
         }
@@ -60,12 +64,12 @@ switch ($action) {
         $hoten = $_POST["txthoten"];
         $hinhanh = $_POST["txthinhanh"];
 
-        if($_FILES["fhinhanh"]["name"] != null) {
+        if ($_FILES["fhinhanh"]["name"] != null) {
             $hinhanh = basename($_FILES["fhinhanh"]["name"]);
             $duongdan = "../../images/users/" . $hinhanh;
             move_uploaded_file($_FILES["fhinhanh"]["tmp_name"], $duongdan);
         }
-        $nd->capnhatnguoidung($mand,$email,$sodt,$hoten,$hinhanh,$diachi);
+        $nd->capnhatnguoidung($mand, $email, $sodt, $hoten, $hinhanh, $diachi);
         $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
         include("profile.php");
         break;
@@ -97,4 +101,3 @@ switch ($action) {
     default:
         break;
 }
-?>
