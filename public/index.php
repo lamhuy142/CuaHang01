@@ -170,25 +170,32 @@ switch ($action) {
         //thêm đơn hàng
         $donhangmoi = new DONHANG();
         $ngay = date("Y-m-d");
-        $ghichu = "";
-        $donhangmoi->setnguoidung_id($_SESSION["id"]);
+        $ghichu = " ";
+        $donhangmoi->setnguoidung_id($_POST["txtid"]);
         $donhangmoi->setngay($ngay);
         $donhangmoi->settongtien($_POST["txttongtien"]);
         $donhangmoi->setghichu($ghichu);
         // thêm
         $dh->themdonhang($donhangmoi);
-        //thêm đơn hàng chi tiết
-        $dhctmoi = new DONHANGCT();
-        $dhctmoi->setdonhang_id($_POST["txtid"]);
-        $dhctmoi->setsanpham_id($_SESSION["sanpham_id"]);
-        $dhctmoi->setthanhtien($_POST["txttongtien"]);
-        $dhctmoi->setghichu($ghichu);
-        $dhct->themdonhangct($dhctmoi);
         xoagiohang();
-        // $sanpham = $sp->giamsoluong($_POST["txtid"], $_POST["txtsl"]);
         $sanpham = $sp->laysanpham();
         include("main.php");
         break;
+    // case "htdonhang":
+    //     //thêm đơn hàng
+    //     $donhangmoi = new DONHANG();
+    //     $ngay = date("Y-m-d");
+    //     $ghichu = "";
+    //     $donhangmoi->setnguoidung_id($_SESSION["txtid"]);
+    //     $donhangmoi->setngay($ngay);
+    //     $donhangmoi->settongtien($_POST["txttongtien"]);
+    //     $donhangmoi->setghichu($ghichu);
+    //     // thêm
+    //     $dh->themdonhang($donhangmoi);
+    //     xoagiohang();
+    //     $sanpham = $sp->laysanpham();
+    //     include("main.php");
+    //     break;
     case "dangky":
         include("dangky.php");
         break;

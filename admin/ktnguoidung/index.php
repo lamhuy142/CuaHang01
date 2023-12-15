@@ -18,6 +18,18 @@ switch ($action) {
     case "macdinh":
         include("profile.php");
         break;
+    case "matkhau":
+        $nguoidung = $nd->laydanhsachnguoidung();
+        include("doimatkhau.php");
+        break;
+    case "xldoimatkhau":
+        $matkhau = $_POST["matkhau"];
+        $email = $_POST["email"];
+
+        $nd->doimatkhau($email,$matkhau);
+        $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
+        include("profile.php");
+        break;
     case "dangnhap":
         include("login.php");
         break;
@@ -55,7 +67,7 @@ switch ($action) {
         }
         $nd->capnhatnguoidung($mand,$email,$sodt,$hoten,$hinhanh,$diachi);
         $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
-        include("main.php");
+        include("profile.php");
         break;
     case "dangky":
         include("register.php");
