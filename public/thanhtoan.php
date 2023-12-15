@@ -38,7 +38,6 @@
         </div>
         <div class="card-body">
             <form action="post">
-                <!-- <input type="hidden" name="txtsl" value="<php echo $_SESSION['giohang']['solg']; ?>"> -->
                 <table class="table table-bordered">
                     <tr>
                         <th class="text-white bg-info">Sản phẩm</th>

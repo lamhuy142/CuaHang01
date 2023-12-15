@@ -125,12 +125,13 @@ switch ($action) {
             if ($_SESSION["nguoidung"]["loai"] == "3") {
                 $sanpham = $sp->laysanpham();
                 include("main.php");
-            // } elseif($_SESSION["nguoidung"]["loai"] == "1") {
-            //     include("../admin/ktnguoidung");
-            // }
-        } else {
-            include("dangnhap.php");
-        }}
+                // } elseif($_SESSION["nguoidung"]["loai"] == "1") {
+                //     include("../admin/ktnguoidung");
+                // }
+            } else {
+                include("dangnhap.php");
+            }
+        }
         break;
     case "dangxuat":
         unset($_SESSION["nguoidung"]);
@@ -157,7 +158,7 @@ switch ($action) {
         $_SESSION["nguoidung"] = $nd->laythongtinnguoidung($email);
         include("hoso.php");
         break;
-    case "thanhtoan":   
+    case "thanhtoan":
         // Kiểm tra hành động $action: yêu cầu đăng nhập nếu chưa xác thực
         if ($isLogin == FALSE) {
             include("dangnhap.php");
@@ -178,24 +179,26 @@ switch ($action) {
         // thêm
         $dh->themdonhang($donhangmoi);
         xoagiohang();
+        $sl = $_POST["txtsl"];
+        $sp->giamsoluong($_POST["txtid"],$sl);
         $sanpham = $sp->laysanpham();
         include("main.php");
         break;
-    // case "htdonhang":
-    //     //thêm đơn hàng
-    //     $donhangmoi = new DONHANG();
-    //     $ngay = date("Y-m-d");
-    //     $ghichu = "";
-    //     $donhangmoi->setnguoidung_id($_SESSION["txtid"]);
-    //     $donhangmoi->setngay($ngay);
-    //     $donhangmoi->settongtien($_POST["txttongtien"]);
-    //     $donhangmoi->setghichu($ghichu);
-    //     // thêm
-    //     $dh->themdonhang($donhangmoi);
-    //     xoagiohang();
-    //     $sanpham = $sp->laysanpham();
-    //     include("main.php");
-    //     break;
+        // case "htdonhang":
+        //     //thêm đơn hàng
+        //     $donhangmoi = new DONHANG();
+        //     $ngay = date("Y-m-d");
+        //     $ghichu = "";
+        //     $donhangmoi->setnguoidung_id($_SESSION["txtid"]);
+        //     $donhangmoi->setngay($ngay);
+        //     $donhangmoi->settongtien($_POST["txttongtien"]);
+        //     $donhangmoi->setghichu($ghichu);
+        //     // thêm
+        //     $dh->themdonhang($donhangmoi);
+        //     xoagiohang();
+        //     $sanpham = $sp->laysanpham();
+        //     include("main.php");
+        //     break;
     case "dangky":
         include("dangky.php");
         break;
