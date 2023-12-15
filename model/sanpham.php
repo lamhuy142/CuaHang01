@@ -116,7 +116,7 @@ class SANPHAM
     {
         $dbcon = DATABASE::connect();
         try {
-            $sql = "SELECT * FROM sanpham s, phanloai p where s.phanloaisp = p.id AND  s.tensp like '%$search%'  "; //OR p.tenpl like '%$search%'
+            $sql = "SELECT * FROM sanpham where tensp like '%$search%'  "; //OR p.tenpl like '%$search%'
             $cmd = $dbcon->prepare($sql);
            // $cmd->bindValue(":tensp", $search);
             $cmd->execute();
