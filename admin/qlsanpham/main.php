@@ -17,7 +17,7 @@
 			<td><?php echo $s["soluongton"]; ?></td>
 			<td>
 				<a href="index.php?action=chitiet&id=<?php echo $s['id']; ?>">
-				<img width="40px" class="thumnail" src="..\..\<?php echo $s['hinhanh']; ?>">
+				<img width="40px" class="thumnail" src="..\..\<?php echo $s['hinhanh']; ?>  ">
 				</a>
 			</td>
 			<td><a href="index.php?action=sua&id=<?php echo $s['id']; ?>" class="btn btn-warning">Sửa</a></td>
