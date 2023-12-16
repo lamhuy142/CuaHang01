@@ -167,11 +167,28 @@ switch ($action) {
             include("thanhtoan.php");
         }
         break;
+    // case "htdonhang":
+    //     //thêm đơn hàng
+    //     $donhangmoi = new DONHANG();
+    //     $ngay = date("Y-m-d");
+    //     $ghichu = " ";
+    //     $donhangmoi->setnguoidung_id($_POST["txtid"]);
+    //     $donhangmoi->setngay($ngay);
+    //     $donhangmoi->settongtien($_POST["txttongtien"]);
+    //     $donhangmoi->setghichu($ghichu);
+    //     // thêm
+    //     $dh->themdonhang($donhangmoi);
+    //     xoagiohang();
+    //     $sl = $_POST["txtsl"];
+    //     $sp->giamsoluong($_POST["txtid"],$sl);
+    //     $sanpham = $sp->laysanpham();
+    //     include("main.php");
+    //     break;
     case "htdonhang":
         //thêm đơn hàng
         $donhangmoi = new DONHANG();
         $ngay = date("Y-m-d");
-        $ghichu = " ";
+        $ghichu = "";
         $donhangmoi->setnguoidung_id($_POST["txtid"]);
         $donhangmoi->setngay($ngay);
         $donhangmoi->settongtien($_POST["txttongtien"]);
@@ -179,26 +196,10 @@ switch ($action) {
         // thêm
         $dh->themdonhang($donhangmoi);
         xoagiohang();
-        $sl = $_POST["txtsl"];
-        $sp->giamsoluong($_POST["txtid"],$sl);
+        $sanpham = $sp->giamsoluong($_POST["txtid"], $_POST["txtsl"]);
         $sanpham = $sp->laysanpham();
         include("main.php");
         break;
-        // case "htdonhang":
-        //     //thêm đơn hàng
-        //     $donhangmoi = new DONHANG();
-        //     $ngay = date("Y-m-d");
-        //     $ghichu = "";
-        //     $donhangmoi->setnguoidung_id($_SESSION["txtid"]);
-        //     $donhangmoi->setngay($ngay);
-        //     $donhangmoi->settongtien($_POST["txttongtien"]);
-        //     $donhangmoi->setghichu($ghichu);
-        //     // thêm
-        //     $dh->themdonhang($donhangmoi);
-        //     xoagiohang();
-        //     $sanpham = $sp->laysanpham();
-        //     include("main.php");
-        //     break;
     case "dangky":
         include("dangky.php");
         break;

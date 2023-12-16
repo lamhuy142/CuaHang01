@@ -195,7 +195,6 @@ class SANPHAM
             exit();
         }
     }
-    // Cập nhật số lượng
     public function giamsoluong($id, $soluongmua)
     {
         $dbcon = DATABASE::connect();
@@ -212,7 +211,6 @@ class SANPHAM
             exit();
         }
     }
-
     // Lấy mặt hàng xem nhiều
     public function laysanphamxemnhieu()
     {
