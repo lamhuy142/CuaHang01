@@ -42,7 +42,7 @@ shrink-to-fit=no">
                                         </div>
                                         <div class="my-3">
                                             <label for="txtdiachi" class="form-label">Địa chỉ:</label>
-                                            <input type="text" class="form-control" id="diachi" placeholder="Địa chỉ" name="txtdiachi"  required>
+                                            <input type="text" class="form-control" id="diachi" placeholder="Địa chỉ" name="txtdiachi" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Số điện thoại</label>
@@ -65,9 +65,9 @@ shrink-to-fit=no">
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="text-center mb-3">
+                        <div class="text-center mb-3">
                             Chưa có tài khoản? <a href="index.php?action=dangky">Đăng ký</a>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,3 +76,27 @@ shrink-to-fit=no">
 </body>
 
 </html>
+
+<script>
+    function validateForm() {
+        var email = document.getElementById("emailInput").value;
+        var phone = document.getElementById("phoneInput").value;
+        var emailError = document.getElementById("emailError");
+        var phoneError = document.getElementById("phoneError");
+
+        // Kiểm tra email
+        if (email.indexOf("@") === -1) {
+            emailError.innerText = "Email phải chứa ký tự @";
+            return false; // Ngăn form submit
+        }
+
+        // Kiểm tra số điện thoại
+        if (!/^\d{10}$/.test(phone)) {
+            phoneError.innerText = "Số điện thoại phải có 10 chữ số";
+            return false; // Ngăn form submit
+        }
+
+        return true; // Cho phép form submit
+    }
+</script>
+
