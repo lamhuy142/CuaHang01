@@ -6,6 +6,7 @@
 			alt="<?php echo $x["tensp"]; ?>">		
 		<h6 class="card-title text-info"><?php echo $x["tensp"]; ?></h6>
 		<p class="card-text text-danger fw-bold"><?php echo number_format($x["giaban"]); ?>đ</p>	</a>	
+		<p class="card-text text-danger fw-bold"><?php echo $x["mota"]; ?></p>	</a>	
 	</div>
 <?php endforeach; ?>
 </div>
