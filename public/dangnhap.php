@@ -1,3 +1,18 @@
+<?php 
+$errors = [];
+if(empty($_POST["txtemail"])){
+    $errors['email']['require'] = 'Email không được để trống';
+}else{
+    if(!filter_var($_POST["txtemail"],FILTER_VALIDATE_EMAIL)){
+        $errors['email']['invalid'] = 'Email không hợp lệ';
+    }
+} 
+if(empty($errors)){
+    echo "Validate thành công";
+} else{
+    echo "Validate không thành công";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,10 +43,17 @@ shrink-to-fit=no">
                         <div class="card">
                             <div class="card-body">
                                 <div class="m-sm-3">
-                                    <form action="index.php" method="post">
+                                    <form action="index.php" class="needs-validated" method="post">
                                         <div class="mb-3">
                                             <label class="form-label">Email</label>
-                                            <input class="form-control form-control-lg" type="email" name="txtemail" placeholder="Nhập email" />
+                                            <input class="form-control form-control-lg" type="email" name="txtemail" placeholder="Nhập email"
+                                            value="<?php echo (!empty($_POST['txtemail']))? $_POST['txtemail'] :false;  ?>"/>
+                                            <?php echo (!empty($errors['email']['require']))?
+                                            '<div class="invalid-feedback">
+                                                '. $errors['email']['require'].'
+                                            </div>':false;
+                                            ?>
+                                            
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Mật khẩu</label>
