@@ -68,8 +68,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="text-danger">Ghi chú</td>
-                        <td colspan="4">
+                        <td class="text-dark">Ghi chú</td>
+                        <td colspan="5">
                             <textarea name="txtghichu" id="ghichu" cols="50" rows="6"></textarea>
                         </td>
                     </tr>
